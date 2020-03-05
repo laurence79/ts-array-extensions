@@ -1,7 +1,10 @@
-import './src/compactMap';
-import './src/compactMapAsync'
-import './src/forEachAsync'
-import './src/groupBy'
-import './src/interleave'
-import './src/mapAsync'
-import './src/toIndex'
+import './compactMap';
+import './compactMapAsync';
+import './distinct';
+import './forEachAsync';
+import './groupBy';
+import './interleave';
+import './mapAsync';
+import './toIndex';
+
+export * from './CreateIndexedObject';

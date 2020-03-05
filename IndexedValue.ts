@@ -1,4 +1,4 @@
 export interface IndexedValue<T> {
-  key: string,
-  value: T
+  key: string;
+  value: T;
 }
