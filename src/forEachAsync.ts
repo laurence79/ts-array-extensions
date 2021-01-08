@@ -2,7 +2,9 @@ export {};
 
 declare global {
   interface Array<T> {
-    forEachAsync(callback: (element: T, index: number, array: T[]) => Promise<void>): Promise<void>;
+    forEachAsync(
+      callback: (element: T, index: number, array: T[]) => Promise<void>
+    ): Promise<void>;
   }
 }
 

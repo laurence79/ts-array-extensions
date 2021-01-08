@@ -1,0 +1,38 @@
+{
+  "name": "ts-array-extensions",
+  "version": "0.0.1",
+  "description": "Functional extensions to the Array prototype",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "./node_modules/.bin/tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "build:watch": "./node_modules/.bin/tsc -p tsconfig.json --watch",
+    "lint:watch": "./node_modules/.bin/esw --cache 'src/*.ts' --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurence79/ts-array-extensions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laurence79/ts-array-extensions/issues"
+  },
+  "homepage": "https://github.com/laurence79/ts-array-extensions#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "@typescript-eslint/parser": "^4.12.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-watch": "^7.0.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3"
+  }
+}

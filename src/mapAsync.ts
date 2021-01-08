@@ -2,7 +2,9 @@ export {};
 
 declare global {
   interface Array<T> {
-    mapAsync<U>(callback: (element: T, index: number, array: T[]) => Promise<U>): Promise<U[]>;
+    mapAsync<U>(
+      callback: (element: T, index: number, array: T[]) => Promise<U>
+    ): Promise<U[]>;
   }
 }
 
@@ -12,6 +14,8 @@ if (!Array.prototype.mapAsync) {
     this: T[],
     callback: (element: T, index: number, array: T[]) => Promise<U>
   ): Promise<U[]> {
-    return Promise.all(this.map((element, index) => callback(element, index, this)));
+    return Promise.all(
+      this.map((element, index) => callback(element, index, this))
+    );
   };
 }

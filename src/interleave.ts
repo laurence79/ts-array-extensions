@@ -2,7 +2,9 @@ export {};
 
 declare global {
   interface Array<T> {
-    interleave<U>(callback: (previousElement: T, nextElement: T) => U): Array<T | U>;
+    interleave<U>(
+      callback: (previousElement: T, nextElement: T) => U
+    ): Array<T | U>;
   }
 }
 
