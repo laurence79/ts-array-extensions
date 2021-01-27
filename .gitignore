@@ -1,2 +1,12 @@
+# build output
 lib
+
+# dependencies
 node_modules
+
+# caches
+.eslintcache
+
+# misc
+.DS_Store
+npm-debug.log*
