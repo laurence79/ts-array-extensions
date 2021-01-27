@@ -23,8 +23,7 @@ jobs:
 
       - name: Patch package.json
         run: |
-          sudo apt-get install jq && \
-          jq -c '.version = $RELEASE_VERSION' package.json > package.$$.json && mv package.$$.json package.json
+          jq '.version = env.RELEASE_VERSION' package.json > package.$$.json && mv package.$$.json package.json
 
       - name: Configure package registry
         uses: actions/setup-node@v1
