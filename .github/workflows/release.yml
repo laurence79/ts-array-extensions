@@ -32,4 +32,4 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Publish
-        run: npm run publish
+        run: npm publish
