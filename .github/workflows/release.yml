@@ -1,0 +1,36 @@
+name: Release package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: Release to NPM
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Get the version
+        run: echo "RELEASE_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+
+      - name: Patch package.json
+        run: |
+          apt-get install jq && \
+          jq -c '.version = $RELEASE_VERSION' package.json > package.$$.json && mv package.$$.json package.json
+
+      - name: Configure package registry
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Publish
+        run: npm run publish
