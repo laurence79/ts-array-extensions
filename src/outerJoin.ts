@@ -7,8 +7,8 @@ declare global {
       on: (left: T, right: U) => boolean
     ): (
       | { left: T; right: U }
-      | { left: T; right: U | null }
-      | { left: T | null; right: U }
+      | { left: T; right: null }
+      | { left: null; right: U }
     )[];
   }
 }
@@ -21,8 +21,8 @@ if (!Array.prototype.outerJoin) {
     on: (left: T, right: U) => boolean
   ): (
     | { left: T; right: U }
-    | { left: T; right: U | null }
-    | { left: T | null; right: U }
+    | { left: T; right: null }
+    | { left: null; right: U }
   )[] {
     const unmatchedLeft = new Set(this);
     const unmatchedRight = new Set(other);

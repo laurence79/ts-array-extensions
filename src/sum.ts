@@ -3,7 +3,8 @@ export {};
 
 declare global {
   interface Array<T> {
-    sum(callback?: (element: T, index: number, array: T[]) => number): number;
+    sum(): number;
+    sum(callback: (element: T, index: number, array: T[]) => number): number;
   }
 }
 

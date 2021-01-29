@@ -17,7 +17,5 @@ import './sum';
 import './toRecord';
 import './union';
 
-export * from './ArrayElement';
-export * from './Key';
-export * from './range';
-export * from './recordToArray';
+export * from './types';
+export * from './helpers';
