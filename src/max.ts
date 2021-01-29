@@ -3,7 +3,23 @@ export {};
 
 declare global {
   interface Array<T> {
+    /**
+     * Compares each element of an array, and returns the largest (using `>`) of
+     * all the elements, or `null` if the array is empty.
+     *
+     * @returns the largest element.
+     */
     max(): T | null;
+
+    /**
+     * Calls a defined callback function on each element of an array, and
+     * returns the largest (using `>`) of all the callback return values, or
+     * `null` if the array is empty.
+     *
+     * @param callbackFn - A function that accepts up to three arguments. The
+     *  max method calls the callbackfn function one time for each
+     *  element in the array.
+     */
     max<V extends string | number>(
       callback: (element: T, index: number, array: T[]) => V
     ): V | null;
