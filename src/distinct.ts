@@ -2,6 +2,12 @@ export {};
 
 declare global {
   interface Array<T> {
+    /**
+     * Returns an array that contains all of the elements of this array that are
+     * unique.
+     *
+     * @returns A new array with the results
+     */
     distinct(): T[];
   }
 }

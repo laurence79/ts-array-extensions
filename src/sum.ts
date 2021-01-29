@@ -3,7 +3,23 @@ export {};
 
 declare global {
   interface Array<T> {
+    /**
+     * Iterates over each element of an array, and returns the total (using `+`)
+     * of all the elements, or zero if the array is empty.
+     *
+     * @returns the total of all the elements.
+     */
     sum(): number;
+
+    /**
+     * Calls a defined callback function on each element of an array, and
+     * returns the total (using `+`) of all the callback return values, or
+     * zero if the array is empty.
+     *
+     * @param callbackFn - A function that accepts up to three arguments. The
+     *  sum method calls the callbackfn function one time for each
+     *  element in the array.
+     */
     sum(callback: (element: T, index: number, array: T[]) => number): number;
   }
 }

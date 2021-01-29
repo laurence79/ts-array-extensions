@@ -16,5 +16,8 @@
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.quoteStyle": "single",
-  "taskExplorer.pathToMake": "make"
+  "taskExplorer.pathToMake": "make",
+  "cSpell.words": [
+    "LINQ"
+  ]
 }
