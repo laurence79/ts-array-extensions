@@ -1,3 +1,6 @@
+import '../mapAsync';
+import '../compact';
+
 export {};
 
 declare global {
@@ -14,12 +17,8 @@ declare global {
      * @returns A promise which resolves to a new array with the results
      */
     compactMapAsync<U>(
-      callbackFn: (
-        element: T,
-        index: number,
-        array: T[]
-      ) => Promise<void | undefined | U>
-    ): Promise<U[]>;
+      callbackFn: (element: T, index: number, array: T[]) => Promise<U>
+    ): Promise<NonNullable<U>[]>;
   }
 }
 
@@ -27,13 +26,9 @@ if (!Array.prototype.compactMapAsync) {
   // eslint-disable-next-line no-extend-native
   Array.prototype.compactMapAsync = async function compactMapAsync<T, U>(
     this: T[],
-    callbackFn: (
-      element: T,
-      index: number,
-      array: T[]
-    ) => Promise<void | undefined | U>
-  ): Promise<U[]> {
+    callbackFn: (element: T, index: number, array: T[]) => Promise<U>
+  ): Promise<NonNullable<U>[]> {
     const elements = await this.mapAsync(callbackFn);
-    return elements.compactMap(element => element);
+    return elements.compact();
   };
 }

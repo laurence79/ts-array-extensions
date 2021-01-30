@@ -1,5 +1,4 @@
-import { Key } from './types/Key';
-import { KeyValuePair } from './types/KeyValuePair';
+import { Key, KeyValuePair } from '../types';
 
 declare global {
   interface Array<T> {

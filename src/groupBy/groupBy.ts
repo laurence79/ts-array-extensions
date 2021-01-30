@@ -1,4 +1,4 @@
-import { Key, KeyValuePair } from './types';
+import { Key, KeyValuePair } from '../types';
 
 export {};
 

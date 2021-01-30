@@ -13,29 +13,33 @@ npm i ts-array-extensions
 
 ## Using
 
-You should just be able to `import` this library, e.g.
-
+You can `import` all the functions
 ```ts
 import 'ts-array-extensions';
 ```
+or individual ones as you need them
+```ts
+import 'ts-array-extensions/compactMap';
+```
 
-## Additional methods
+## Functions
 
 - [any](#any)
-- [compactMap](#compactMap)
-- [compactMapAsync](#compactMapAsync)
+- [compact](#compact)
+- [compactMap](#compactmap)
+- [compactMapAsync](#compactmapasync)
 - [distinct](#distinct)
 - [first](#first)
-- [forEachAsync](#forEachAsync)
-- [groupBy](#groupBy)
+- [forEachAsync](#foreachasync)
+- [groupBy](#groupby)
 - [interleave](#interleave)
-- [mapAsync](#mapAsync)
+- [mapAsync](#mapasync)
 - [max](#max)
 - [min](#min)
 - [none](#none)
-- [outerJoin](#outerJoin)
+- [outerJoin](#outerjoin)
 - [sum](#sum)
-- [toRecord](#toRecord)
+- [toRecord](#torecord)
 - [union](#union)
 
 ### any
@@ -50,15 +54,20 @@ Returns `true` if the array contains any elements.
 // false
 ```
 
-### compactMap
+### compact
 
-Returns elements of the array that are not `null` or `undefined`. Takes an
-optional callback to map values first.
+Returns elements of the array that are not `null` or `undefined`.
 
 ```ts
-[1, null, 2].compactMap();
+[1, null, 2].compact();
 // [1, 2]
+```
 
+### compactMap
+
+Maps elements and returns results that are not `null` or `undefined`.
+
+```ts
 [1, 2, 3].compactMap(v => {
   if (v % 2 !== 0) return v;
 });

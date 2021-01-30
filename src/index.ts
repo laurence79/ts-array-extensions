@@ -1,6 +1,7 @@
 // auto-barrel-ignore
 
 import './any';
+import './compact';
 import './compactMap';
 import './compactMapAsync';
 import './distinct';
