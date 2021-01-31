@@ -1,20 +1,36 @@
+import { Comparer, defaultComparer } from '../types';
+
 export {};
 
 declare global {
   interface Array<T> {
     /**
      * Returns an array that contains all of the elements of this array that are
-     * unique.
+     * unique based on the defined comparer function.
+     *
+     * @param comparerFn - An optional function that accepts two arguments.
+     *  The distinct method calls the comparerFn function to determine the
+     *  equality of values. Triple equal `===` comparison is used by default.
      *
      * @returns A new array with the results
      */
-    distinct(): T[];
+    distinct(comparerFn?: Comparer<T>): T[];
   }
 }
 
 if (!Array.prototype.distinct) {
   // eslint-disable-next-line no-extend-native
-  Array.prototype.distinct = function distinct<T>(this: T[]): T[] {
-    return [...new Set(this)];
+  Array.prototype.distinct = function distinct<T>(
+    this: T[],
+    arg1?: Comparer<T>
+  ): T[] {
+    const comparerFn = arg1 ?? defaultComparer<T>();
+
+    return this.reduce((memo, value) => {
+      if (!memo.some(v => comparerFn(v, value))) {
+        memo.push(value);
+      }
+      return memo;
+    }, [] as T[]);
   };
 }

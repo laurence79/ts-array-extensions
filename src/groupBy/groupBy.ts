@@ -1,4 +1,4 @@
-import { Comparer, defaultComparer } from './Comparer';
+import { Comparer, defaultComparer } from '../types/Comparer';
 import { Group } from './Group';
 
 declare global {
@@ -13,7 +13,7 @@ declare global {
      *  element in the array.
      * @param keyComparerFn - An optional function that accepts two arguments.
      *  The groupBy method calls the keyComparerFn function to determine the
-     *  equality of keys. The default uses triple equal `===` comparison.
+     *  equality of keys. Triple equal `===` comparison is used by default.
      *
      * @returns An array of group elements, each with an array of elements
      *  matching each key.
