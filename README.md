@@ -14,15 +14,18 @@ npm i ts-array-extensions
 ## Using
 
 You can `import` all the functions
+
 ```ts
 import 'ts-array-extensions';
 ```
+
 or individual ones as you need them
+
 ```ts
 import 'ts-array-extensions/compactMap';
 ```
 
-## Functions
+## Array.prototype extensions
 
 - [any](#any)
 - [compact](#compact)
@@ -117,7 +120,8 @@ await [1, 2, 3].forEachAsync(async v => {
 
 ### groupBy
 
-Returns a `Record<K,V[]>` extracted from the array using callbacks
+Returns an array of `Group<K, V>` extracted from the array using a callback, and
+an optional key comparer.
 
 ```ts
 [
@@ -125,14 +129,23 @@ Returns a `Record<K,V[]>` extracted from the array using callbacks
   { make: 'Ford', model: 'Focus' },
   { make: 'Vauxhall', model: 'Corsa' },
   { make: 'Vauxhall', model: 'Astra' }
-].groupBy(
-  k => k.make,
-  v => v.model
-);
-// {
-//   Ford: ['Fiesta', 'Focus'],
-//   Vauxhall: ['Corsa', 'Astra']
-// }
+].groupBy(k => k.make);
+// [
+//   {
+//     key: 'Ford',
+//     values: [
+//       { make: 'Ford', model: 'Fiesta' },
+//       { make: 'Ford', model: 'Focus' }
+//     ]
+//   },
+//   {
+//     key: 'Vauxhall',
+//     values: [
+//       { make: 'Vauxhall', model: 'Corsa' },
+//       { make: 'Vauxhall', model: 'Astra' }
+//     ]
+//   }
+// ]
 ```
 
 ### interleave
@@ -233,8 +246,8 @@ first with a callback
 
 Returns a `Record<K,V>` extracted from the array using callbacks.
 
-Similar in functionality to [groupBy](#groupBy), but it will use the last value
-for a key if there are duplicates.
+Similar in functionality to [groupBy](#groupby), but returns a Record, and can
+optionally aggregate values with the same key.
 
 ```ts
 [
@@ -245,7 +258,7 @@ for a key if there are duplicates.
   { name: 'Theodore', age: 8 }
 ].toRecord(
   k => k.name,
-  v => v.age
+  v => v.first().age
 );
 // {
 //   Chloe: 19,
