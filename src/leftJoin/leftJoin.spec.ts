@@ -1,6 +1,6 @@
 import '.';
 
-describe('outerJoin', () => {
+describe('leftJoin', () => {
   const leftData = [
     { id: 1, name: 'Apples', groupId: 1 },
     { id: 2, name: 'Oranges', groupId: 1 },
@@ -14,28 +14,20 @@ describe('outerJoin', () => {
   ];
 
   it('returns the expected number of results', () => {
-    const result = leftData.outerJoin(rightData, (l, r) => l.groupId === r.id);
-    expect(result.length).toEqual(5);
+    const result = leftData.leftJoin(rightData, (l, r) => l.groupId === r.id);
+    expect(result.length).toEqual(4);
   });
 
   it('returns unmatched left values', () => {
-    const result = leftData.outerJoin(rightData, (l, r) => l.groupId === r.id);
+    const result = leftData.leftJoin(rightData, (l, r) => l.groupId === r.id);
     expect(result).toContainEqual({
       left: { id: 4, name: 'Random', groupId: null },
       right: null
     });
   });
 
-  it('returns unmatched right values', () => {
-    const result = leftData.outerJoin(rightData, (l, r) => l.groupId === r.id);
-    expect(result).toContainEqual({
-      left: null,
-      right: { id: 3, name: 'Confectionary' }
-    });
-  });
-
   it('returns matched values', () => {
-    const result = leftData.outerJoin(rightData, (l, r) => l.groupId === r.id);
+    const result = leftData.leftJoin(rightData, (l, r) => l.groupId === r.id);
     expect(result).toContainEqual({
       left: { id: 1, name: 'Apples', groupId: 1 },
       right: { id: 1, name: 'Produce' }
