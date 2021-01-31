@@ -10,6 +10,7 @@ import './forEachAsync';
 import './groupBy';
 import './innerJoin';
 import './interleave';
+import './last';
 import './leftJoin';
 import './mapAsync';
 import './max';
