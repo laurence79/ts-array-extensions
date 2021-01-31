@@ -91,11 +91,25 @@ await [1, 2, 3].compactMapAsync(async v => {
 
 ### distinct
 
-Returns elements of the array that are unique.
+Returns elements of the array that are unique, using a comparer function if
+supplied, or `===` if not.
 
 ```ts
 [1, 1, 2, 2].distinct();
 // [1, 2]
+
+[
+  { day: 1, month: 1, year: 1979 },
+  { day: 1, month: 1, year: 1979 },
+  { day: 2, month: 1, year: 1979 },
+  { day: 2, month: 1, year: 1979 }
+].distinct(
+  (a, b) => a.day === b.day && a.month === b.month && a.year === b.year
+);
+// [
+//   { day: 1, month: 1, year: 1979 },
+//   { day: 2, month: 1, year: 1979 }
+// ]
 ```
 
 ### first
@@ -271,11 +285,26 @@ optionally aggregate values with the same key.
 
 ### union
 
-Returns only the values present in both arrays.
+Returns only the values present in both arrays, using a comparer function if
+supplied, or `===` if not.
 
 ```ts
 [1, 2, 3].union([2, 3, 4]);
 // [2, 3]
+
+[
+  { day: 1, month: 1, year: 1979 },
+  { day: 2, month: 1, year: 1979 }
+].union(
+  [
+    { day: 2, month: 1, year: 1979 },
+    { day: 3, month: 1, year: 1979 }
+  ],
+  (a, b) => a.day === b.day && a.month === b.month && a.year === b.year
+);
+// [
+//   { day: 2, month: 1, year: 1979 }
+// ]
 ```
 
 ## Contributing
