@@ -35,7 +35,9 @@ import 'ts-array-extensions/compactMap';
 - [first](#first)
 - [forEachAsync](#foreachasync)
 - [groupBy](#groupby)
+- [innerJoin](#innerjoin)
 - [interleave](#interleave)
+- [leftJoin](#leftjoin)
 - [mapAsync](#mapasync)
 - [max](#max)
 - [min](#min)
@@ -162,6 +164,40 @@ an optional key comparer.
 // ]
 ```
 
+### innerJoin
+
+Matches two array using a callback and returns the joined results.
+
+```ts
+const leftData = [
+  { id: 1, name: 'Apples', groupId: 1 },
+  { id: 2, name: 'Oranges', groupId: 1 },
+  { id: 3, name: 'Cornflakes', groupId: 2 },
+  { id: 4, name: 'Random', groupId: null }
+];
+const rightData = [
+  { id: 1, name: 'Produce' },
+  { id: 2, name: 'Grocery' },
+  { id: 3, name: 'Confectionary' }
+];
+
+leftData.innerJoin(rightData, (l, r) => l.groupId === r.id);
+// [
+//   {
+//     left: { id: 1, name: 'Apples', groupId: 1 },
+//     right: { id: 1, name: 'Produce' }
+//   },
+//   {
+//     left: { id: 2, name: 'Oranges', groupId: 1 },
+//     right: { id: 1, name: 'Produce' }
+//   },
+//   {
+//     left: { id: 3, name: 'Cornflakes', groupId: 2 },
+//     right: { id: 2, name: 'Grocery' }
+//   }
+// ];
+```
+
 ### interleave
 
 Adds new elements in between each element of an array.
@@ -169,6 +205,45 @@ Adds new elements in between each element of an array.
 ```ts
 ['one', 'two', 'three'].interleave(() => 'and');
 // ['one', 'and', 'two', 'and', 'three']
+```
+
+### leftJoin
+
+Matches two array using a callback and returns the joined results and unmatched
+results from the left array.
+
+```ts
+const leftData = [
+  { id: 1, name: 'Apples', groupId: 1 },
+  { id: 2, name: 'Oranges', groupId: 1 },
+  { id: 3, name: 'Cornflakes', groupId: 2 },
+  { id: 4, name: 'Random', groupId: null }
+];
+const rightData = [
+  { id: 1, name: 'Produce' },
+  { id: 2, name: 'Grocery' },
+  { id: 3, name: 'Confectionary' }
+];
+
+leftData.leftJoin(rightData, (l, r) => l.groupId === r.id);
+// [
+//   {
+//     left: { id: 1, name: 'Apples', groupId: 1 },
+//     right: { id: 1, name: 'Produce' }
+//   },
+//   {
+//     left: { id: 2, name: 'Oranges', groupId: 1 },
+//     right: { id: 1, name: 'Produce' }
+//   },
+//   {
+//     left: { id: 3, name: 'Cornflakes', groupId: 2 },
+//     right: { id: 2, name: 'Grocery' }
+//   },
+//   {
+//     left: { id: 4, name: 'Random', groupId: null },
+//     right: null
+//   }
+// ];
 ```
 
 ### mapAsync
@@ -228,19 +303,45 @@ Returns `false` if the array contains any elements.
 
 ### outerJoin
 
-Matches two array using a callback and returns the results joined.
+Matches two array using a callback and returns the joined results and unmatched
+results from both arrays.
 
 ```ts
-const left = [1, 2, 3];
-const right = [2, 3, 4];
+const leftData = [
+  { id: 1, name: 'Apples', groupId: 1 },
+  { id: 2, name: 'Oranges', groupId: 1 },
+  { id: 3, name: 'Cornflakes', groupId: 2 },
+  { id: 4, name: 'Random', groupId: null }
+];
+const rightData = [
+  { id: 1, name: 'Produce' },
+  { id: 2, name: 'Grocery' },
+  { id: 3, name: 'Confectionary' }
+];
 
-left.outerJoin(right, (l, r) => l === r);
+leftData.outerJoin(rightData, (l, r) => l.groupId === r.id);
 // [
-//   { left: 1, right: null },
-//   { left: 2, right: 2 },
-//   { left: 3, right: 3 },
-//   { left: null, right: 4 }
-// ]
+//   {
+//     left: { id: 1, name: 'Apples', groupId: 1 },
+//     right: { id: 1, name: 'Produce' }
+//   },
+//   {
+//     left: { id: 2, name: 'Oranges', groupId: 1 },
+//     right: { id: 1, name: 'Produce' }
+//   },
+//   {
+//     left: { id: 3, name: 'Cornflakes', groupId: 2 },
+//     right: { id: 2, name: 'Grocery' }
+//   },
+//   {
+//     left: { id: 4, name: 'Random', groupId: null },
+//     right: null
+//   },
+//   {
+//     left: null,
+//     right: { id: 3, name: 'Confectionary' }
+//   }
+// ];
 ```
 
 ### sum
