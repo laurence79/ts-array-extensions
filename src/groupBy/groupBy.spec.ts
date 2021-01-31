@@ -4,53 +4,76 @@ describe('groupBy', () => {
   const sampleData = [
     {
       id: 1,
-      colour: 'RED'
+      colour: 'PINK'
     },
     {
       id: 2,
-      colour: 'BLUE'
+      colour: 'PURPLE'
     },
     {
       id: 3,
-      colour: 'BLUE'
+      colour: 'PURPLE'
     },
     {
       id: 4,
-      colour: 'RED'
+      colour: 'PINK'
     }
   ];
 
   it('extracts group keys', () => {
     const result = sampleData.groupBy(v => v.colour);
 
-    expect(Object.keys(result)).toEqual(['RED', 'BLUE']);
+    expect(result.map(r => r.key)).toEqual(['PINK', 'PURPLE']);
   });
 
   it('returns group values', () => {
     const result = sampleData.groupBy(v => v.colour);
 
-    expect(result['RED'][0].id).toEqual(1);
-    expect(result['RED'][1].id).toEqual(4);
-    expect(result['BLUE'][0].id).toEqual(2);
-    expect(result['BLUE'][1].id).toEqual(3);
+    expect(result).toContainEqual({
+      key: 'PINK',
+      values: [
+        {
+          id: 1,
+          colour: 'PINK'
+        },
+        {
+          id: 4,
+          colour: 'PINK'
+        }
+      ]
+    });
+    expect(result).toContainEqual({
+      key: 'PURPLE',
+      values: [
+        {
+          id: 2,
+          colour: 'PURPLE'
+        },
+        {
+          id: 3,
+          colour: 'PURPLE'
+        }
+      ]
+    });
   });
 
-  it('projects key value pairs', () => {
-    const result = sampleData.groupBy(v => ({ key: v.colour, value: v.id }));
-
-    expect(Object.keys(result)).toEqual(['RED', 'BLUE']);
-    expect(result['RED']).toEqual([1, 4]);
-    expect(result['BLUE']).toEqual([2, 3]);
-  });
-
-  it('projects keys and values', () => {
+  it('uses custom comparer', () => {
     const result = sampleData.groupBy(
-      v => v.colour,
-      v => v.id
+      v => ({ initial: v.colour[0], remain: v.colour.substring(1) }),
+      (a, b) => a.initial === b.initial && a.remain === b.remain
     );
-
-    expect(Object.keys(result)).toEqual(['RED', 'BLUE']);
-    expect(result['RED']).toEqual([1, 4]);
-    expect(result['BLUE']).toEqual([2, 3]);
+    expect(result).toContainEqual({
+      key: { initial: 'P', remain: 'INK' },
+      values: [
+        {
+          id: 1,
+          colour: 'PINK'
+        },
+        {
+          id: 4,
+          colour: 'PINK'
+        }
+      ]
+    });
   });
 });
