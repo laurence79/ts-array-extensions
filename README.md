@@ -32,6 +32,7 @@ import 'ts-array-extensions/compactMap';
 - [compactMap](#compactmap)
 - [compactMapAsync](#compactmapasync)
 - [distinct](#distinct)
+- [except](#except)
 - [first](#first)
 - [forEachAsync](#foreachasync)
 - [groupBy](#groupby)
@@ -111,6 +112,30 @@ supplied, or `===` if not.
 // [
 //   { day: 1, month: 1, year: 1979 },
 //   { day: 2, month: 1, year: 1979 }
+// ]
+```
+
+### except
+
+Returns values from the first array, that aren't present in the second, using a
+comparer function if supplied, or `===` if not.
+
+```ts
+[1, 2, 3].except([2, 3, 4]);
+// [1]
+
+[
+  { day: 1, month: 1, year: 1979 },
+  { day: 2, month: 1, year: 1979 }
+].union(
+  [
+    { day: 2, month: 1, year: 1979 },
+    { day: 3, month: 1, year: 1979 }
+  ],
+  (a, b) => a.day === b.day && a.month === b.month && a.year === b.year
+);
+// [
+//   { day: 1, month: 1, year: 1979 }
 // ]
 ```
 

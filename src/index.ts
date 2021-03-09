@@ -5,6 +5,7 @@ import './compact';
 import './compactMap';
 import './compactMapAsync';
 import './distinct';
+import './except';
 import './first';
 import './forEachAsync';
 import './groupBy';

@@ -4,6 +4,7 @@
     "dbaeumer.vscode-eslint",
     "orta.vscode-jest",
     "spmeesseman.vscode-taskexplorer",
-    "mikehanson.auto-barrel"
+    "mikehanson.auto-barrel",
+    "me-dutour-mathieu.vscode-github-actions"
   ]
 }

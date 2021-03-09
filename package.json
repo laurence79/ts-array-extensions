@@ -10,8 +10,8 @@
   "scripts": {
     "build": "./node_modules/.bin/tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "build:watch": "./node_modules/.bin/tsc -p tsconfig.json --watch",
-    "lint": "./node_modules/.bin/eslint --cache 'src/*.ts'",
-    "lint:watch": "./node_modules/.bin/esw --cache 'src/*.ts' --watch",
+    "lint": "./node_modules/.bin/eslint --cache 'src/**/*.ts'",
+    "lint:watch": "./node_modules/.bin/esw --cache 'src/**/*.ts' --watch",
     "prepublishOnly": "npm run build",
     "test": "jest --roots './src'"
   },
