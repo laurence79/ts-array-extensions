@@ -1,2 +1,5 @@
-lib
+# 3rd party code
 node_modules
+
+# build output
+lib

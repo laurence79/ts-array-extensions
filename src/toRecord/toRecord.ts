@@ -44,9 +44,10 @@ declare global {
 if (!Array.prototype.toRecord) {
   // eslint-disable-next-line no-extend-native
   Array.prototype.toRecord = function toRecord<T, K extends Key, V>(
+    this: T[],
     keyExtractFn: (element: T, index: number, array: T[]) => K,
     aggregatorFn?: (elements: T[]) => V
-  ): Record<K, T> | Record<K, V> {
+  ): Record<K, T[]> | Record<K, V> {
     const intermediate = this.reduce((memo, element, index, collection) => {
       const key = keyExtractFn(element, index, collection);
       const value = [...(memo[key] ?? []), element];
@@ -61,7 +62,7 @@ if (!Array.prototype.toRecord) {
     }
 
     return Object.keys(intermediate).reduce((memo, key) => {
-      const values = intermediate[key];
+      const values = intermediate[key as K];
       return {
         ...memo,
         [key]: aggregatorFn(values)

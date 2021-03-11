@@ -40,7 +40,7 @@ if (!Array.prototype.last) {
 
     return this.reduce((memo, element, index) => {
       if (callbackFn(element, index, this)) {
-        memo = element;
+        return element;
       }
       return memo;
     }, undefined as undefined | T);
