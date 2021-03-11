@@ -1,6 +1,8 @@
 {
   "autoBarrel.ignoreFilePathContainingAnyOf": ".spec,.test,.stories",
-  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
   "editor.rulers": [80],
   "eslint.lintTask.enable": true,
   "eslint.validate": ["typescript"],
@@ -18,8 +20,8 @@
   "typescript.preferences.quoteStyle": "single",
   "taskExplorer.pathToMake": "make",
   "cSpell.words": [
-    "Corsa",
-    "LINQ",
-    "Vauxhall"
+    "rivr",
+    "ttsc",
+    "ttypescript"
   ]
 }

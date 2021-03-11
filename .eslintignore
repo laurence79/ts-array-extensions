@@ -1,2 +1,5 @@
-**/node_modules/*
-**/lib/*
+# 3rd party code
+node_modules
+
+# build output
+lib

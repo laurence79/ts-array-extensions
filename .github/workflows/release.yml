@@ -1,35 +1,29 @@
 name: Release package
-
 on:
   release:
-    types: [published]
-
+    types:
+      - published
 jobs:
   release:
-    name: Release to NPM
+    name: Publish package
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Get the version
-        run: echo "RELEASE_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-
-      - name: Patch package.json
-        run: |
-          jq '.version = env.RELEASE_VERSION' package.json > package.$$.json && mv package.$$.json package.json
-
-      - name: Configure package registry
+      - name: Configure NodeJS
         uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org'
-
+          node-version: '14'
+          registry-url: https://registry.npmjs.org
+      - name: Install Dependencies
+        run: npm ci
+      - name: Get the version
+        run: echo "RELEASE_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+      - name: Patch package.json
+        run: >
+          jq '.version = env.RELEASE_VERSION' package.json > package.$$.json &&
+          mv package.$$.json package.json
       - name: Publish
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

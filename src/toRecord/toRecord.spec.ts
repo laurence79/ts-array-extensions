@@ -29,22 +29,22 @@ describe('toRecord', () => {
   it('extracts values', () => {
     const result = sampleData.toRecord(v => v.colour);
 
-    expect(result['RED'].length).toEqual(2);
-    expect(result['RED']).toContainEqual({
+    expect(result.RED.length).toEqual(2);
+    expect(result.RED).toContainEqual({
       id: 1,
       colour: 'RED'
     });
-    expect(result['RED']).toContainEqual({
+    expect(result.RED).toContainEqual({
       id: 4,
       colour: 'RED'
     });
 
-    expect(result['BLUE'].length).toEqual(2);
-    expect(result['BLUE']).toContainEqual({
+    expect(result.BLUE.length).toEqual(2);
+    expect(result.BLUE).toContainEqual({
       id: 2,
       colour: 'BLUE'
     });
-    expect(result['BLUE']).toContainEqual({
+    expect(result.BLUE).toContainEqual({
       id: 3,
       colour: 'BLUE'
     });
@@ -60,12 +60,12 @@ describe('toRecord', () => {
       })
     );
 
-    expect(result['RED']).toEqual({
+    expect(result.RED).toEqual({
       count: 2,
       min: 1,
       max: 4
     });
-    expect(result['BLUE']).toEqual({
+    expect(result.BLUE).toEqual({
       count: 2,
       min: 2,
       max: 3

@@ -3,7 +3,7 @@ import '.';
 describe('forEachAsync', () => {
   it('awaits all promises', async () => {
     const answers: number[] = [];
-    [1, 2].forEachAsync(
+    await [1, 2].forEachAsync(
       v =>
         new Promise(r => {
           answers.push(v * 2);
