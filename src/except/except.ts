@@ -3,6 +3,21 @@ import { Comparer, defaultComparer } from '../types';
 export {};
 
 declare global {
+  interface ReadonlyArray<T> {
+    /**
+     * Finds elements in this array that don't appear in the other.
+     *
+     * @param other - The other array to compare with.
+     * @param comparerFn - An optional function that accepts two arguments.
+     *  The union method calls the comparerFn function to determine the
+     *  equality of values. Triple equal `===` comparison is used by default.
+     *
+     * @returns A new array containing only the elements in this array that
+     *  don't appear in the other.
+     */
+    except(other: ReadonlyArray<T>, comparerFn?: Comparer<T>): Array<T>;
+  }
+
   interface Array<T> {
     /**
      * Finds elements in this array that don't appear in the other.
@@ -15,17 +30,17 @@ declare global {
      * @returns A new array containing only the elements in this array that
      *  don't appear in the other.
      */
-    except(other: T[], comparerFn?: Comparer<T>): T[];
+    except(other: ReadonlyArray<T>, comparerFn?: Comparer<T>): Array<T>;
   }
 }
 
 if (!Array.prototype.except) {
   // eslint-disable-next-line no-extend-native
   Array.prototype.except = function except<T>(
-    this: T[],
-    other: T[],
+    this: ReadonlyArray<T>,
+    other: ReadonlyArray<T>,
     arg2?: Comparer<T>
-  ): T[] {
+  ): Array<T> {
     const comparerFn = arg2 ?? defaultComparer<T>();
 
     return this.reduce((memo, element) => {
@@ -36,6 +51,6 @@ if (!Array.prototype.except) {
         memo.push(element);
       }
       return memo;
-    }, [] as T[]);
+    }, [] as Array<T>);
   };
 }
