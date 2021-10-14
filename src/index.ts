@@ -4,6 +4,7 @@ import './any';
 import './compact';
 import './compactMap';
 import './compactMapAsync';
+import './cume';
 import './distinct';
 import './except';
 import './first';
