@@ -31,6 +31,7 @@ import 'ts-array-extensions/compactMap';
 - [compact](#compact)
 - [compactMap](#compactmap)
 - [compactMapAsync](#compactmapasync)
+- [cume](#cume)
 - [distinct](#distinct)
 - [except](#except)
 - [first](#first)
@@ -92,6 +93,19 @@ await [1, 2, 3].compactMapAsync(async v => {
 // [1, 2, 3]
 ```
 
+### cume
+
+Returns the a running total of all the elements in the array, optionally mapping
+them first with a callback
+
+```ts
+[1, 10, 100].cume();
+// [1, 11, 111]
+
+[1, 10, 100].cume(v => v * 10);
+// [10, 110, 1110]
+```
+
 ### distinct
 
 Returns elements of the array that are unique, using a comparer function if
@@ -127,7 +141,7 @@ comparer function if supplied, or `===` if not.
 [
   { day: 1, month: 1, year: 1979 },
   { day: 2, month: 1, year: 1979 }
-].union(
+].except(
   [
     { day: 2, month: 1, year: 1979 },
     { day: 3, month: 1, year: 1979 }
