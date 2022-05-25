@@ -5,38 +5,38 @@ declare global {
     /**
      * Calls a defined callback function on each element of an array, and
      * returns a Record keyed by the return value of the callback function,
-     * associated with an array of the elements that have the same key.
+     * associated with the last element that has the same key.
      *
      * @param keyExtractFn - A function that accepts up to three arguments. The
      *  toRecord method calls the callbackfn function one time for each
      *  element in the array.
      *
-     * @returns A Record keyed by group, with an array of elements matching
-     *  each key.
+     * @returns A Record keyed by the result of keyExtractFn, with the value as
+     *  the last element matching each key.
      */
     toRecord<K extends Key>(
       keyExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => K
-    ): Record<K, Array<T>>;
+    ): Record<K, T>;
 
     /**
      * Calls a defined callback function on each element of an array,
      * and returns a Record keyed by the return value of the key callback
-     * function, associated with the return value of the aggregator function for
-     * the array of elements with the same key.
+     * function, associated with the last return value of the value function for
+     * elements with the same key.
      *
      * @param keyExtractFn - A function that accepts up to three arguments. The
      *  toRecord method calls the keyExtractFn function one time for each
      *  element in the array.
-     * @param aggregatorFn - A function that accepts one argument.
-     *  The toRecord method calls the aggregatorFn function one time for each
-     *  set of elements with the same key.
+     * @param valueExtractFn - A function that accepts up to three arguments. The
+     *  toRecord method calls the valueExtractFn function one time for each
+     *  element in the array.
      *
-     * @returns A Record keyed by group, with the aggregation result as the
-     *  value.
+     * @returns A Record keyed by the result of keyExtractFn, with the values as
+     *  the result of valueExtractFn
      */
     toRecord<K extends Key, V>(
       keyExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => K,
-      aggregatorFn: (elements: ReadonlyArray<T>) => V
+      valueExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => V
     ): Record<K, V>;
   }
 
@@ -44,38 +44,38 @@ declare global {
     /**
      * Calls a defined callback function on each element of an array, and
      * returns a Record keyed by the return value of the callback function,
-     * associated with an array of the elements that have the same key.
+     * associated with the last element that has the same key.
      *
      * @param keyExtractFn - A function that accepts up to three arguments. The
      *  toRecord method calls the callbackfn function one time for each
      *  element in the array.
      *
-     * @returns A Record keyed by group, with an array of elements matching
-     *  each key.
+     * @returns A Record keyed by the result of keyExtractFn, with the value as
+     *  the last element matching each key.
      */
     toRecord<K extends Key>(
       keyExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => K
-    ): Record<K, Array<T>>;
+    ): Record<K, T>;
 
     /**
      * Calls a defined callback function on each element of an array,
      * and returns a Record keyed by the return value of the key callback
-     * function, associated with the return value of the aggregator function for
-     * the array of elements with the same key.
+     * function, associated with the last return value of the value function for
+     * elements with the same key.
      *
      * @param keyExtractFn - A function that accepts up to three arguments. The
      *  toRecord method calls the keyExtractFn function one time for each
      *  element in the array.
-     * @param aggregatorFn - A function that accepts one argument.
-     *  The toRecord method calls the aggregatorFn function one time for each
-     *  set of elements with the same key.
+     * @param valueExtractFn - A function that accepts up to three arguments. The
+     *  toRecord method calls the valueExtractFn function one time for each
+     *  element in the array.
      *
-     * @returns A Record keyed by group, with the aggregation result as the
-     *  value.
+     * @returns A Record keyed by the result of keyExtractFn, with the values as
+     *  the result of valueExtractFn
      */
     toRecord<K extends Key, V>(
       keyExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => K,
-      aggregatorFn: (elements: ReadonlyArray<T>) => V
+      valueExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => V
     ): Record<K, V>;
   }
 }
@@ -85,27 +85,16 @@ if (!Array.prototype.toRecord) {
   Array.prototype.toRecord = function toRecord<T, K extends Key, V>(
     this: ReadonlyArray<T>,
     keyExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => K,
-    aggregatorFn?: (elements: ReadonlyArray<T>) => V
-  ): Record<K, Array<T>> | Record<K, V> {
-    const intermediate = this.reduce((memo, element, index, collection) => {
-      const key = keyExtractFn(element, index, collection);
-      const value = [...(memo[key] ?? []), element];
-      return {
-        ...memo,
-        [key]: value
-      };
-    }, {} as Record<K, Array<T>>);
+    valueExtractFn?: (element: T, index: number, array: ReadonlyArray<T>) => V
+  ): Record<K, T> | Record<K, V> {
+    const entries = this.map(
+      (element, index, array) =>
+        [
+          keyExtractFn(element, index, array),
+          valueExtractFn ? valueExtractFn(element, index, array) : element
+        ] as const
+    );
 
-    if (!aggregatorFn) {
-      return intermediate;
-    }
-
-    return Object.keys(intermediate).reduce((memo, key) => {
-      const values = intermediate[key as K];
-      return {
-        ...memo,
-        [key]: aggregatorFn(values)
-      };
-    }, {} as Record<K, V>);
+    return Object.fromEntries(entries) as Record<K, T> | Record<K, V>;
   };
 }

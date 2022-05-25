@@ -398,10 +398,10 @@ first with a callback
 
 ### toRecord
 
-Returns a `Record<K,V>` extracted from the array using callbacks.
+Returns a `Record<K, V>` extracted from the array using callbacks.
 
-Similar in functionality to [groupBy](#groupby), but returns a Record, and can
-optionally aggregate values with the same key.
+Similar in functionality to [groupBy](#groupby), but returns a Record, and the
+last value with a matching key wins
 
 ```ts
 [
@@ -412,7 +412,7 @@ optionally aggregate values with the same key.
   { name: 'Theodore', age: 8 }
 ].toRecord(
   k => k.name,
-  v => v.first().age
+  v => v.age
 );
 // {
 //   Chloe: 19,
