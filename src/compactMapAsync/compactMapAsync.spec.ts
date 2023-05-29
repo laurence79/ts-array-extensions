@@ -1,3 +1,4 @@
+/* eslint-disable no-promise-executor-return */
 import '.';
 
 describe('compactMapAsync', () => {

@@ -58,7 +58,11 @@ if (!Array.prototype.max) {
     let maxValue: T | V | null = null;
     this.forEach((element, index) => {
       const t = callback?.(element, index, this) ?? element;
-      if (maxValue === null || maxValue < t) {
+      if (
+        maxValue === null ||
+        typeof maxValue === 'undefined' ||
+        maxValue < t
+      ) {
         maxValue = t;
       }
     });

@@ -58,7 +58,11 @@ if (!Array.prototype.min) {
     let minValue: T | V | null = null;
     this.forEach((element, index) => {
       const t = callback?.(element, index, this) ?? element;
-      if (minValue === null || minValue > t) {
+      if (
+        minValue === null ||
+        typeof minValue === 'undefined' ||
+        minValue > t
+      ) {
         minValue = t;
       }
     });

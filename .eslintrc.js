@@ -1,9 +1,11 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'import', 'prettier'],
   extends: [
+    'airbnb-base',
     'airbnb-typescript',
+    'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
