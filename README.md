@@ -45,6 +45,7 @@ import 'ts-array-extensions/compactMap';
 - [min](#min)
 - [none](#none)
 - [outerJoin](#outerjoin)
+- [sortBy](#sprtBy)
 - [sum](#sum)
 - [toRecord](#torecord)
 - [union](#union)
@@ -381,6 +382,23 @@ leftData.outerJoin(rightData, (l, r) => l.groupId === r.id);
 //     right: { id: 3, name: 'Confectionary' }
 //   }
 // ];
+```
+
+### sortBy
+
+Returns a new array, sorted by the result of a callback function.
+
+```ts
+[
+  { name: 'Brian' },
+  { name: 'Albert' },
+  { name: 'Charlie' }
+].sortBy(v => v.name);
+// [
+//   { name: 'Albert' },
+//   { name: 'Brian' },
+//   { name: 'Charlie' }
+// ]
 ```
 
 ### sum

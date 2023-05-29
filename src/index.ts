@@ -19,6 +19,7 @@ import './max';
 import './min';
 import './none';
 import './outerJoin';
+import './sortBy';
 import './sum';
 import './toRecord';
 import './union';
