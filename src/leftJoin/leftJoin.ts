@@ -51,20 +51,23 @@ if (!Array.prototype.leftJoin) {
     other: ReadonlyArray<U>,
     on: (left: T, right: U) => boolean
   ): Array<{ left: T; right: U } | { left: T; right: null }> {
-    const unmatchedLeft = new Set(this);
-    const pairs: { left: T; right: U }[] = [];
+    const pairs: Array<{ left: T; right: U } | { left: T; right: null }> = [];
+
     this.forEach(left => {
+      let matches = 0;
+
       other.forEach(right => {
         if (on(left, right)) {
+          matches += 1;
           pairs.push({ left, right });
-          unmatchedLeft.delete(left);
         }
       });
+
+      if (matches === 0) {
+        pairs.push({ left, right: null });
+      }
     });
-    const leftOnly = Array.from(unmatchedLeft).map(left => ({
-      left,
-      right: null
-    }));
-    return [...leftOnly, ...pairs];
+
+    return pairs;
   };
 }
