@@ -35,7 +35,6 @@
     "@rollup/plugin-typescript": "^8.2.0",
     "@tsconfig/node18": "^2.0.1",
     "@types/jest": "^29.5.1",
-    "@types/ts-nameof": "^4.2.1",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "boiler-sync": "^1.0.1",
@@ -52,7 +51,6 @@
     "rimraf": "^5.0.1",
     "rollup": "^2.41.0",
     "ts-jest": "^29.1.0",
-    "ts-nameof": "^5.0.0",
     "ts-node": "^9.1.1",
     "tslib": "^2.1.0",
     "typescript": "^5.0.4"

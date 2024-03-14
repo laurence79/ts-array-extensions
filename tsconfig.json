@@ -19,7 +19,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "types": ["node", "@types/ts-nameof", "jest"],
+    "types": ["node", "jest"],
     "typeRoots": ["node_modules/@types"]
   },
   "exclude": ["node_modules"],
