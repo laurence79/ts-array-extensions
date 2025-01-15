@@ -1,5 +1,2 @@
-// auto-barrel-ignore
-
-import './groupBy';
-
-export * from './Group';
+import './groupBy.js';
+export * from './Group.js';

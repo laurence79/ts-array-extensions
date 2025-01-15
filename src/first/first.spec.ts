@@ -6,6 +6,7 @@ describe('first', () => {
     expect(result).toEqual(1);
   });
   it('returns undefined for empty arrays', () => {
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     const result = [].first();
     expect(result).toBeUndefined();
   });

@@ -23,7 +23,6 @@ declare global {
 }
 
 if (!Array.prototype.none) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.none = function none<T>(this: ReadonlyArray<T>): boolean {
     return this.length === 0;
   };

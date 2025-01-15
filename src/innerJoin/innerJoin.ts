@@ -45,7 +45,6 @@ declare global {
 }
 
 if (!Array.prototype.innerJoin) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.innerJoin = function innerJoin<T, U>(
     this: ReadonlyArray<T>,
     other: ReadonlyArray<U>,

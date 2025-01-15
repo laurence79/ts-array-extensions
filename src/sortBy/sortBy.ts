@@ -12,7 +12,7 @@ declare global {
      *
      * @returns A new array, sorted by the result of valueExtractFn.
      */
-    sortBy<V extends string | number>(
+    sortBy<V extends string | number | bigint>(
       valueExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => V,
       order?: 'asc' | 'desc'
     ): ReadonlyArray<T>;
@@ -29,7 +29,7 @@ declare global {
      *
      * @returns A new array, sorted by the result of valueExtractFn.
      */
-    sortBy<V extends string | number>(
+    sortBy<V extends string | number | bigint>(
       valueExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => V,
       order?: 'asc' | 'desc'
     ): Array<T>;
@@ -37,7 +37,6 @@ declare global {
 }
 
 if (!Array.prototype.sortBy) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.sortBy = function sortBy<
     T,
     V extends string | number | bigint

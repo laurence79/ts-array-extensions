@@ -1,2 +1,2 @@
-export * from './recordToArray';
-export * from './range';
+export * from './recordToArray.js';
+export * from './range.js';

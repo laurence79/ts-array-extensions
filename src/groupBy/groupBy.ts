@@ -1,5 +1,5 @@
-import { Comparer, defaultComparer } from '../types/Comparer';
-import { Group } from './Group';
+import { Comparer, defaultComparer } from '../types/Comparer.js';
+import { Group } from './Group.js';
 
 declare global {
   interface ReadonlyArray<T> {
@@ -48,7 +48,6 @@ declare global {
 }
 
 if (!Array.prototype.groupBy) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.groupBy = function groupBy<T, K>(
     this: ReadonlyArray<T>,
     keyExtractFn: (

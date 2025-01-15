@@ -1,5 +1,5 @@
-/* eslint-disable no-promise-executor-return */
-import '.';
+/* eslint-disable @typescript-eslint/no-confusing-void-expression */
+import './compactMapAsync.js';
 
 describe('compactMapAsync', () => {
   it('awaits promises', async () => {

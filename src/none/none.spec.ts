@@ -1,4 +1,4 @@
-import '.';
+import './none.js';
 
 describe('none', () => {
   it('returns false for arrays that have elements', () => {

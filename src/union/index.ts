@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './union';
+import './union.js';

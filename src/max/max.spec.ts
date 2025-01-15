@@ -1,4 +1,4 @@
-import '.';
+import './max.js';
 
 describe('max', () => {
   it('returns the highest number', () => {

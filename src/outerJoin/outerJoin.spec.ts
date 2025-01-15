@@ -1,4 +1,4 @@
-import '.';
+import './outerJoin.js';
 
 describe('outerJoin', () => {
   const leftData = [

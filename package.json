@@ -13,49 +13,347 @@
   },
   "license": "ISC",
   "author": "",
-  "main": "./lib/index.js",
-  "module": "./lib/index.es.js",
-  "types": "./lib/index.d.ts",
+  "type": "module",
   "files": [
     "lib/"
   ],
   "scripts": {
-    "boiler-update": "./node_modules/.bin/boiler-sync update",
-    "lint": "./node_modules/.bin/eslint --cache 'src/**/*.ts' --quiet",
-    "lint:watch": "./node_modules/.bin/esw --cache 'src/**/*.ts' --watch",
-    "build": "npm run clean && ./node_modules/.bin/rollup -c",
-    "build:watch": "./node_modules/.bin/rollup -c -w",
-    "clean": "./node_modules/.bin/rimraf lib",
+    "build": "wireit",
+    "clean": "rimraf -g .wireit/*/cache dist .tshy",
+    "lint": "wireit",
     "prepublishOnly": "npm run build",
-    "test": "jest --passWithNoTests"
+    "test": "wireit"
+  },
+  "wireit": {
+    "build": {
+      "command": "tshy",
+      "clean": "if-file-deleted",
+      "files": [
+        "src/**",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/**",
+        ".tshy/**"
+      ]
+    },
+    "lint": {
+      "command": "eslint --color --cache --cache-location .eslintcache **/*.{ts,js}",
+      "files": [
+        "src/*.{ts,js}",
+        "eslint.config.js"
+      ],
+      "output": [
+        ".eslintcache"
+      ]
+    },
+    "test": {
+      "command": "jest",
+      "files": [
+        "src/**",
+        "jest.config.cjs"
+      ],
+      "output": []
+    }
+  },
+  "tshy": {
+    "exclude": [
+      "src/**/*.spec.ts"
+    ],
+    "exports": {
+      ".": "./src/index.ts",
+      "./any": "./src/any/index.ts",
+      "./compact": "./src/compact/index.ts",
+      "./compactMap": "./src/compactMap/index.ts",
+      "./compactMapAsync": "./src/compactMapAsync/index.ts",
+      "./cume": "./src/cume/index.ts",
+      "./distinct": "./src/distinct/index.ts",
+      "./except": "./src/except/index.ts",
+      "./first": "./src/first/index.ts",
+      "./forEachAsync": "./src/forEachAsync/index.ts",
+      "./groupBy": "./src/groupBy/index.ts",
+      "./innerJoin": "./src/innerJoin/index.ts",
+      "./interleave": "./src/interleave/index.ts",
+      "./last": "./src/last/index.ts",
+      "./leftJoin": "./src/leftJoin/index.ts",
+      "./mapAsync": "./src/mapAsync/index.ts",
+      "./max": "./src/max/index.ts",
+      "./min": "./src/min/index.ts",
+      "./none": "./src/none/index.ts",
+      "./outerJoin": "./src/outerJoin/index.ts",
+      "./sortBy": "./src/sortBy/index.ts",
+      "./sum": "./src/sum/index.ts",
+      "./toRecord": "./src/toRecord/index.ts",
+      "./union": "./src/union/index.ts"
+    }
   },
   "devDependencies": {
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^11.2.0",
-    "@rollup/plugin-typescript": "^8.2.0",
-    "@tsconfig/node18": "^2.0.1",
-    "@types/jest": "^29.5.1",
-    "@typescript-eslint/eslint-plugin": "^5.54.0",
-    "@typescript-eslint/parser": "^5.54.0",
-    "boiler-sync": "^1.0.1",
-    "eslint": "^8.35.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-watch": "^8.0.0",
-    "jest": "^29.5.0",
-    "prettier": "^2.2.1",
-    "rimraf": "^5.0.1",
-    "rollup": "^2.41.0",
-    "ts-jest": "^29.1.0",
-    "ts-node": "^9.1.1",
-    "tslib": "^2.1.0",
-    "typescript": "^5.0.4"
+    "@swc/jest": "^0.2.37",
+    "@tsconfig/node20": "^20",
+    "@types/jest": "^29",
+    "@types/node": "^20",
+    "eslint": "^9",
+    "eslint-config-prettier": "^10",
+    "eslint-import-resolver-typescript": "^3",
+    "eslint-plugin-import-x": "^4",
+    "eslint-plugin-jest": "^28",
+    "eslint-plugin-prettier": "^5",
+    "globals": "^15",
+    "jest": "^29",
+    "prettier": "^3",
+    "rimraf": "^6",
+    "tshy": "^3",
+    "tslib": "^2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8",
+    "wireit": "^0.14.9"
   },
   "peerDependencies": {
-    "tslib": "^2.1.0"
-  }
+    "tslib": "^2"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./any": {
+      "import": {
+        "types": "./dist/esm/any/index.d.ts",
+        "default": "./dist/esm/any/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/any/index.d.ts",
+        "default": "./dist/commonjs/any/index.js"
+      }
+    },
+    "./compact": {
+      "import": {
+        "types": "./dist/esm/compact/index.d.ts",
+        "default": "./dist/esm/compact/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/compact/index.d.ts",
+        "default": "./dist/commonjs/compact/index.js"
+      }
+    },
+    "./compactMap": {
+      "import": {
+        "types": "./dist/esm/compactMap/index.d.ts",
+        "default": "./dist/esm/compactMap/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/compactMap/index.d.ts",
+        "default": "./dist/commonjs/compactMap/index.js"
+      }
+    },
+    "./compactMapAsync": {
+      "import": {
+        "types": "./dist/esm/compactMapAsync/index.d.ts",
+        "default": "./dist/esm/compactMapAsync/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/compactMapAsync/index.d.ts",
+        "default": "./dist/commonjs/compactMapAsync/index.js"
+      }
+    },
+    "./cume": {
+      "import": {
+        "types": "./dist/esm/cume/index.d.ts",
+        "default": "./dist/esm/cume/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/cume/index.d.ts",
+        "default": "./dist/commonjs/cume/index.js"
+      }
+    },
+    "./distinct": {
+      "import": {
+        "types": "./dist/esm/distinct/index.d.ts",
+        "default": "./dist/esm/distinct/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/distinct/index.d.ts",
+        "default": "./dist/commonjs/distinct/index.js"
+      }
+    },
+    "./except": {
+      "import": {
+        "types": "./dist/esm/except/index.d.ts",
+        "default": "./dist/esm/except/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/except/index.d.ts",
+        "default": "./dist/commonjs/except/index.js"
+      }
+    },
+    "./first": {
+      "import": {
+        "types": "./dist/esm/first/index.d.ts",
+        "default": "./dist/esm/first/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/first/index.d.ts",
+        "default": "./dist/commonjs/first/index.js"
+      }
+    },
+    "./forEachAsync": {
+      "import": {
+        "types": "./dist/esm/forEachAsync/index.d.ts",
+        "default": "./dist/esm/forEachAsync/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/forEachAsync/index.d.ts",
+        "default": "./dist/commonjs/forEachAsync/index.js"
+      }
+    },
+    "./groupBy": {
+      "import": {
+        "types": "./dist/esm/groupBy/index.d.ts",
+        "default": "./dist/esm/groupBy/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/groupBy/index.d.ts",
+        "default": "./dist/commonjs/groupBy/index.js"
+      }
+    },
+    "./innerJoin": {
+      "import": {
+        "types": "./dist/esm/innerJoin/index.d.ts",
+        "default": "./dist/esm/innerJoin/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/innerJoin/index.d.ts",
+        "default": "./dist/commonjs/innerJoin/index.js"
+      }
+    },
+    "./interleave": {
+      "import": {
+        "types": "./dist/esm/interleave/index.d.ts",
+        "default": "./dist/esm/interleave/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/interleave/index.d.ts",
+        "default": "./dist/commonjs/interleave/index.js"
+      }
+    },
+    "./last": {
+      "import": {
+        "types": "./dist/esm/last/index.d.ts",
+        "default": "./dist/esm/last/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/last/index.d.ts",
+        "default": "./dist/commonjs/last/index.js"
+      }
+    },
+    "./leftJoin": {
+      "import": {
+        "types": "./dist/esm/leftJoin/index.d.ts",
+        "default": "./dist/esm/leftJoin/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/leftJoin/index.d.ts",
+        "default": "./dist/commonjs/leftJoin/index.js"
+      }
+    },
+    "./mapAsync": {
+      "import": {
+        "types": "./dist/esm/mapAsync/index.d.ts",
+        "default": "./dist/esm/mapAsync/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/mapAsync/index.d.ts",
+        "default": "./dist/commonjs/mapAsync/index.js"
+      }
+    },
+    "./max": {
+      "import": {
+        "types": "./dist/esm/max/index.d.ts",
+        "default": "./dist/esm/max/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/max/index.d.ts",
+        "default": "./dist/commonjs/max/index.js"
+      }
+    },
+    "./min": {
+      "import": {
+        "types": "./dist/esm/min/index.d.ts",
+        "default": "./dist/esm/min/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/min/index.d.ts",
+        "default": "./dist/commonjs/min/index.js"
+      }
+    },
+    "./none": {
+      "import": {
+        "types": "./dist/esm/none/index.d.ts",
+        "default": "./dist/esm/none/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/none/index.d.ts",
+        "default": "./dist/commonjs/none/index.js"
+      }
+    },
+    "./outerJoin": {
+      "import": {
+        "types": "./dist/esm/outerJoin/index.d.ts",
+        "default": "./dist/esm/outerJoin/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/outerJoin/index.d.ts",
+        "default": "./dist/commonjs/outerJoin/index.js"
+      }
+    },
+    "./sortBy": {
+      "import": {
+        "types": "./dist/esm/sortBy/index.d.ts",
+        "default": "./dist/esm/sortBy/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/sortBy/index.d.ts",
+        "default": "./dist/commonjs/sortBy/index.js"
+      }
+    },
+    "./sum": {
+      "import": {
+        "types": "./dist/esm/sum/index.d.ts",
+        "default": "./dist/esm/sum/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/sum/index.d.ts",
+        "default": "./dist/commonjs/sum/index.js"
+      }
+    },
+    "./toRecord": {
+      "import": {
+        "types": "./dist/esm/toRecord/index.d.ts",
+        "default": "./dist/esm/toRecord/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/toRecord/index.d.ts",
+        "default": "./dist/commonjs/toRecord/index.js"
+      }
+    },
+    "./union": {
+      "import": {
+        "types": "./dist/esm/union/index.d.ts",
+        "default": "./dist/esm/union/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/union/index.d.ts",
+        "default": "./dist/commonjs/union/index.js"
+      }
+    }
+  },
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
+  "module": "./dist/esm/index.js"
 }

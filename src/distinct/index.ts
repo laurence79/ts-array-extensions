@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './distinct';
+import './distinct.js';

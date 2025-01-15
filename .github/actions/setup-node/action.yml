@@ -1,0 +1,16 @@
+name: setup-node
+description: Setup nodejs, wireit and install packages
+
+runs:
+  using: composite
+
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version-file: ".nvmrc"
+        cache: npm
+
+    - uses: google/wireit@setup-github-actions-caching/v2
+
+    - run: npm ci
+      shell: bash

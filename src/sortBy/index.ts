@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './sortBy';
+import './sortBy.js';

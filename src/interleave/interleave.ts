@@ -39,7 +39,6 @@ declare global {
 }
 
 if (!Array.prototype.interleave) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.interleave = function interleave<T, U>(
     this: ReadonlyArray<T>,
     callbackFn: (previousElement: T, nextElement: T) => U

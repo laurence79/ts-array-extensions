@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './forEachAsync';
+import './forEachAsync.js';

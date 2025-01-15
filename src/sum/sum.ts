@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 export {};
 
 declare global {
@@ -50,7 +49,6 @@ declare global {
 }
 
 if (!Array.prototype.sum) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.sum = function sum<T>(
     this: ReadonlyArray<T>,
     callback?: (element: T, index: number, array: ReadonlyArray<T>) => number

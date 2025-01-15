@@ -23,15 +23,14 @@ declare global {
 }
 
 if (!Array.prototype.compact) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.compact = function compact<T>(
     this: ReadonlyArray<T>
   ): Array<NonNullable<T>> {
-    return this.reduce((memo, element) => {
+    return this.reduce<Array<NonNullable<T>>>((memo, element) => {
       if (element !== null && typeof element !== 'undefined') {
         memo.push(element as NonNullable<T>);
       }
       return memo;
-    }, [] as Array<NonNullable<T>>);
+    }, []);
   };
 }

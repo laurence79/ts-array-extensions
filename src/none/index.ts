@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './none';
+import './none.js';

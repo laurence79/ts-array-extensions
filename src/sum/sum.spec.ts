@@ -1,4 +1,4 @@
-import '.';
+import './sum.js';
 
 describe('sum', () => {
   it('sums numbers', () => {

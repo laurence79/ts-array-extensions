@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 export {};
 
 declare global {
@@ -50,7 +49,6 @@ declare global {
 }
 
 if (!Array.prototype.min) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.min = function min<T, V>(
     this: T[],
     callback?: (element: T, index: number, array: ReadonlyArray<T>) => V

@@ -1,4 +1,4 @@
-import './cume';
+import './cume.js';
 
 describe('cume', () => {
   it('sums numbers', () => {
