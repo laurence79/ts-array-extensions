@@ -1,4 +1,4 @@
-import '..';
+import './toRecord.js';
 
 describe('toRecord', () => {
   const sampleData = [

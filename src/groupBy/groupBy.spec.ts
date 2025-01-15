@@ -1,4 +1,4 @@
-import '.';
+import './groupBy.js';
 
 describe('groupBy', () => {
   const sampleData = [

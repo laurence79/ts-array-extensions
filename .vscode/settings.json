@@ -1,5 +1,4 @@
 {
-  "autoBarrel.ignoreFilePathContainingAnyOf": ".spec,.test,.stories",
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
@@ -14,11 +13,12 @@
     "**/lib": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.referencesCodeLens.enabled": true,
   "javascript.preferences.importModuleSpecifier": "relative",
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.quoteStyle": "single",
-  "taskExplorer.pathToMake": "make",
+  "cSpell.language": "en-GB",
   "cSpell.words": [
     "cume",
     "rivr",

@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 export {};
 
 declare global {
@@ -48,7 +47,6 @@ declare global {
 }
 
 if (!Array.prototype.cume) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.cume = function cume<T>(
     this: ReadonlyArray<T>,
     callback?: (element: T, index: number, array: ReadonlyArray<T>) => number

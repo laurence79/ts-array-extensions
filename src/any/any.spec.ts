@@ -1,4 +1,4 @@
-import '.';
+import './any.js';
 
 describe('any', () => {
   it('returns true for arrays that have elements', () => {

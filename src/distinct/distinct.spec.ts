@@ -1,4 +1,4 @@
-import '.';
+import './distinct.js';
 
 describe('distinct', () => {
   it('does not return duplicate numbers', () => {

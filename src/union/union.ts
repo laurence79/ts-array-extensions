@@ -1,4 +1,4 @@
-import { Comparer, defaultComparer } from '../types';
+import { Comparer, defaultComparer } from '../types/Comparer.js';
 
 export {};
 
@@ -33,7 +33,6 @@ declare global {
 }
 
 if (!Array.prototype.union) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.union = function union<T>(
     this: ReadonlyArray<T>,
     other: ReadonlyArray<T>,
@@ -41,7 +40,7 @@ if (!Array.prototype.union) {
   ): T[] {
     const comparerFn = arg2 ?? defaultComparer<T>();
 
-    return this.reduce((memo, element) => {
+    return this.reduce<Array<T>>((memo, element) => {
       if (
         other.some(v => comparerFn(v, element)) &&
         !memo.some(v => comparerFn(v, element))
@@ -49,6 +48,6 @@ if (!Array.prototype.union) {
         memo.push(element);
       }
       return memo;
-    }, [] as Array<T>);
+    }, []);
   };
 }

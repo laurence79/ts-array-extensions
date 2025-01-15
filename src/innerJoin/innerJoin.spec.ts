@@ -1,4 +1,4 @@
-import '.';
+import './innerJoin.js';
 
 describe('innerJoin', () => {
   const leftData = [

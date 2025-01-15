@@ -1,4 +1,4 @@
-import '.';
+import './compactMap.js';
 
 describe('compactMap', () => {
   it('uses projection', () => {

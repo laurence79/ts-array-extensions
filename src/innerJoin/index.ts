@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './innerJoin';
+import './innerJoin.js';

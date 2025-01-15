@@ -1,4 +1,4 @@
-import '.';
+import './mapAsync.js';
 
 describe('mapAsync', () => {
   it('awaits promises', async () => {

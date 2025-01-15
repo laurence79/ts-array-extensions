@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './outerJoin';
+import './outerJoin.js';

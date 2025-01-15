@@ -1,5 +1,5 @@
-import { Key } from '../types/Key';
-import { KeyValuePair } from '../types/KeyValuePair';
+import { Key } from '../types/Key.js';
+import { KeyValuePair } from '../types/KeyValuePair.js';
 
 export const recordToArray = <K extends Key, V>(
   record: Record<K, V>

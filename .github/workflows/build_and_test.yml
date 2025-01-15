@@ -1,0 +1,47 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - main
+      - next
+  
+  pull_request:
+    branches:
+      - main
+      - next
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-node
+      - run: npm run lint
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-node
+      - run: npm run build
+
+  test:
+    strategy:
+      matrix:
+        version: [18, 20, 22]
+    name: Test on node v${{ matrix.version }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+          cache: npm
+
+      - uses: google/wireit@setup-github-actions-caching/v2
+      - run: npm ci
+      - run: npm run test

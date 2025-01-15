@@ -1,4 +1,4 @@
-import '.';
+import './last.js';
 
 describe('last', () => {
   it('returns the last element of the array', () => {
@@ -6,6 +6,7 @@ describe('last', () => {
     expect(result).toEqual(2);
   });
   it('returns undefined for empty arrays', () => {
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     const result = [].last();
     expect(result).toBeUndefined();
   });

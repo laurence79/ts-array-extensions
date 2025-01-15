@@ -1,4 +1,4 @@
-import '.';
+import './min.js';
 
 describe('min', () => {
   it('returns the lowest number', () => {

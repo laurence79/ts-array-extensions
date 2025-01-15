@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './min';
+import './min.js';

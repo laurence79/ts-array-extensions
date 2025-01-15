@@ -45,7 +45,6 @@ declare global {
 }
 
 if (!Array.prototype.leftJoin) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.leftJoin = function leftJoin<T, U>(
     this: ReadonlyArray<T>,
     other: ReadonlyArray<U>,
