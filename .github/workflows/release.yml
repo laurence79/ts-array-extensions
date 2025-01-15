@@ -1,29 +1,22 @@
-name: Release package
+name: Release
+
 on:
-  release:
-    types:
-      - published
+  workflow_dispatch:
+
 jobs:
   release:
     name: Publish package
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Configure NodeJS
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
         with:
-          node-version: '18'
-          registry-url: https://registry.npmjs.org
-      - name: Install Dependencies
-        run: npm ci
-      - name: Get the version
-        run: echo "RELEASE_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-      - name: Patch package.json
-        run: >
-          jq '.version = env.RELEASE_VERSION' package.json > package.$$.json &&
-          mv package.$$.json package.json
-      - name: Publish
-        run: npm publish --access public
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup-node
+      - run: npm run build
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3.4.2
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
