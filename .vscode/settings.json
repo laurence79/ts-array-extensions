@@ -1,7 +1,7 @@
 {
   "autoBarrel.ignoreFilePathContainingAnyOf": ".spec,.test,.stories",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "editor.rulers": [80],
   "eslint.lintTask.enable": true,
