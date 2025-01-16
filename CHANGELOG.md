@@ -1,3 +1,10 @@
+## [2.2.4-next.3](https://github.com/laurence79/ts-array-extensions/compare/2.2.4-next.2...2.2.4-next.3) (2025-01-16)
+
+
+### Bug Fixes
+
+* Types not included in package ([54f6f44](https://github.com/laurence79/ts-array-extensions/commit/54f6f4416f50d29d4eafbc268349cdff258c4128))
+
 ## [2.2.4-next.2](https://github.com/laurence79/ts-array-extensions/compare/2.2.4-next.1...2.2.4-next.2) (2025-01-16)
 
 
