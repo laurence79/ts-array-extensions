@@ -1,9 +1,0 @@
-uses:
-  repo: git@github.com:rivr-systems/oap-repo-templates.git
-  path: public-code-library
-
-parameters:
-  projectName: 'ts-array-extensions'
-  projectTitle: 'Functional extensions to the Array prototype'
-  projectDescription: 'A library that adds common array higher order function support beyond the built in functions in js, e.g. `map`, `filter`, by extending the `Array` prototype.'
-  repoName: 'ts-array-extensions'
