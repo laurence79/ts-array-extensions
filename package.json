@@ -15,7 +15,7 @@
   "author": "",
   "type": "module",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "scripts": {
     "build": "wireit",
