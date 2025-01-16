@@ -1,3 +1,10 @@
+## [2.2.4-next.2](https://github.com/laurence79/ts-array-extensions/compare/2.2.4-next.1...2.2.4-next.2) (2025-01-16)
+
+
+### Bug Fixes
+
+* Files not exported ([a73812f](https://github.com/laurence79/ts-array-extensions/commit/a73812fa5b65756d8333956f4680d4b470b717f0))
+
 ## [2.2.4-next.1](https://github.com/laurence79/ts-array-extensions/compare/2.2.3...2.2.4-next.1) (2025-01-16)
 
 
