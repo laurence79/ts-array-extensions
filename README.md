@@ -1,46 +1,103 @@
 # Typescript Array Extensions
 
-A library that adds common array higher order function support beyond the built
-in functions in js, e.g. `map`, `filter`, by extending the `Array` prototype.
+A library that provides common array transformation functions beyond the built
+in ones in js, e.g. `map`, `filter`.
 
 Inspired by swift and LINQ.
 
-## Installing
-
+## Install
+Use your package manager of choice
 ```sh
 npm i ts-array-extensions
+```
+```sh
+yarn add ts-array-extensions
+```
+```sh
+pnpm i ts-array-extensions
 ```
 
 ## Using
 
+You can either
+1. Extend `Array.prototype` with utility imports.
+2. Import the functions directly.
+3. Use pipes.
+
+### 1. Extending the `Array` prototype
+
 You can `import` all the functions
 
 ```ts
-import 'ts-array-extensions';
+import 'ts-array-extensions/applyToPrototype';
+
+[1, 2].cume(); // [1, 3]
 ```
 
-or individual ones as you need them
+or individual ones as you need them, then the rest can be shaken out of the
+tree by your bundler
 
 ```ts
-import 'ts-array-extensions/compactMap';
+import 'ts-array-extensions/applyToPrototype/compactMap';
+
+[1, 2, 3].compactMap(v => {
+  if (v % 2 !== 0) return v;
+});
+// [1, 3]
 ```
 
-## Array.prototype extensions
+### 2. Importing the functions directly
+
+You can `import` the functions and use them directly
+
+```ts
+import { cume, compactMap } from 'ts-array-extensions';
+
+cume([1, 2]); // [1, 3]
+
+compactMap(
+  [1, 2, 3],
+  v => {
+    if (v % 2 !== 0) return v;
+  }
+);
+// [1, 3]
+```
+
+### 3. Use pipes
+
+Avoid prototype pollution, but almost as easy to follow.
+
+Will be even better when the javascript [pipeline operator proposal](https://github.com/tc39/proposal-pipeline-operator) lands in typescript
+
+```ts
+import { pipe, cume, compactMap } from 'ts-array-extensions/pipes';
+
+pipe(
+  [1, 2, 3],
+  compactMap(v => {
+    if (v % 2 !== 0) return v;
+  }),
+  cume()
+)
+// [1, 4]
+```
+
+## Methods
+
+The following examples use the `Array.prototype` extension mode, but all can also be used with the direct import and pipe modes.
 
 - [any](#any)
 - [compact](#compact)
 - [compactMap](#compactmap)
-- [compactMapAsync](#compactmapasync)
 - [cume](#cume)
 - [distinct](#distinct)
 - [except](#except)
 - [first](#first)
-- [forEachAsync](#foreachasync)
 - [groupBy](#groupby)
 - [innerJoin](#innerjoin)
 - [interleave](#interleave)
 - [leftJoin](#leftjoin)
-- [mapAsync](#mapasync)
 - [max](#max)
 - [min](#min)
 - [none](#none)
@@ -163,17 +220,6 @@ Returns the first element of the array or `null` if empty.
 // 'morning'
 ```
 
-### forEachAsync
-
-Same as [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) but works with promises. Will await `async`
-callbacks.
-
-```ts
-await [1, 2, 3].forEachAsync(async v => {
-  await /* something */
-});
-```
-
 ### groupBy
 
 Returns an array of `Group<K, V>` extracted from the array using a callback, and
@@ -284,19 +330,6 @@ leftData.leftJoin(rightData, (l, r) => l.groupId === r.id);
 //     right: null
 //   }
 // ];
-```
-
-### mapAsync
-
-Same as [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) but works with promises. Will await `async`
-callbacks.
-
-```ts
-await [1, 2, 3].map(async v => {
-  await /* something */
-  return v * 2;
-});
-// [2, 4, 6]
 ```
 
 ### max

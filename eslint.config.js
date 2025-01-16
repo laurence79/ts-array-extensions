@@ -28,7 +28,8 @@ export default tseslint.config(
       'import-x/no-named-as-default-member': 'off',
       '@typescript-eslint/unified-signatures': 'off',
       '@typescript-eslint/consistent-type-definitions': 'off',
-      '@typescript-eslint/no-unnecessary-type-parameters': 'off'
+      '@typescript-eslint/no-unnecessary-type-parameters': 'off',
+      '@typescript-eslint/unbound-method': 'off'
     }
   },
 

@@ -61,30 +61,29 @@
       "src/**/*.spec.ts"
     ],
     "exports": {
-      ".": "./src/index.ts",
-      "./any": "./src/any/index.ts",
-      "./compact": "./src/compact/index.ts",
-      "./compactMap": "./src/compactMap/index.ts",
-      "./compactMapAsync": "./src/compactMapAsync/index.ts",
-      "./cume": "./src/cume/index.ts",
-      "./distinct": "./src/distinct/index.ts",
-      "./except": "./src/except/index.ts",
-      "./first": "./src/first/index.ts",
-      "./forEachAsync": "./src/forEachAsync/index.ts",
-      "./groupBy": "./src/groupBy/index.ts",
-      "./innerJoin": "./src/innerJoin/index.ts",
-      "./interleave": "./src/interleave/index.ts",
-      "./last": "./src/last/index.ts",
-      "./leftJoin": "./src/leftJoin/index.ts",
-      "./mapAsync": "./src/mapAsync/index.ts",
-      "./max": "./src/max/index.ts",
-      "./min": "./src/min/index.ts",
-      "./none": "./src/none/index.ts",
-      "./outerJoin": "./src/outerJoin/index.ts",
-      "./sortBy": "./src/sortBy/index.ts",
-      "./sum": "./src/sum/index.ts",
-      "./toRecord": "./src/toRecord/index.ts",
-      "./union": "./src/union/index.ts"
+      ".": "./src/exports/index.ts",
+      "./addToPrototype": "./src/exports/addToPrototype/index.ts",
+      "./addToPrototype/any": "./src/exports/addToPrototype/any.ts",
+      "./addToPrototype/compact": "./src/exports/addToPrototype/compact.ts",
+      "./addToPrototype/compactMap": "./src/exports/addToPrototype/compactMap.ts",
+      "./addToPrototype/cume": "./src/exports/addToPrototype/cume.ts",
+      "./addToPrototype/distinct": "./src/exports/addToPrototype/distinct.ts",
+      "./addToPrototype/except": "./src/exports/addToPrototype/except.ts",
+      "./addToPrototype/first": "./src/exports/addToPrototype/first.ts",
+      "./addToPrototype/groupBy": "./src/exports/addToPrototype/groupBy.ts",
+      "./addToPrototype/innerJoin": "./src/exports/addToPrototype/innerJoin.ts",
+      "./addToPrototype/interleave": "./src/exports/addToPrototype/interleave.ts",
+      "./addToPrototype/last": "./src/exports/addToPrototype/last.ts",
+      "./addToPrototype/leftJoin": "./src/exports/addToPrototype/leftJoin.ts",
+      "./addToPrototype/max": "./src/exports/addToPrototype/max.ts",
+      "./addToPrototype/min": "./src/exports/addToPrototype/min.ts",
+      "./addToPrototype/none": "./src/exports/addToPrototype/none.ts",
+      "./addToPrototype/outerJoin": "./src/exports/addToPrototype/outerJoin.ts",
+      "./addToPrototype/sortBy": "./src/exports/addToPrototype/sortBy.ts",
+      "./addToPrototype/sum": "./src/exports/addToPrototype/sum.ts",
+      "./addToPrototype/toRecord": "./src/exports/addToPrototype/toRecord.ts",
+      "./addToPrototype/union": "./src/exports/addToPrototype/union.ts",
+      "./pipe": "./src/exports/pipe.ts"
     }
   },
   "devDependencies": {
@@ -114,246 +113,236 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "types": "./dist/esm/exports/index.d.ts",
+        "default": "./dist/esm/exports/index.js"
       },
       "require": {
-        "types": "./dist/commonjs/index.d.ts",
-        "default": "./dist/commonjs/index.js"
+        "types": "./dist/commonjs/exports/index.d.ts",
+        "default": "./dist/commonjs/exports/index.js"
       }
     },
-    "./any": {
+    "./addToPrototype": {
       "import": {
-        "types": "./dist/esm/any/index.d.ts",
-        "default": "./dist/esm/any/index.js"
+        "types": "./dist/esm/exports/addToPrototype/index.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/index.js"
       },
       "require": {
-        "types": "./dist/commonjs/any/index.d.ts",
-        "default": "./dist/commonjs/any/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/index.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/index.js"
       }
     },
-    "./compact": {
+    "./addToPrototype/any": {
       "import": {
-        "types": "./dist/esm/compact/index.d.ts",
-        "default": "./dist/esm/compact/index.js"
+        "types": "./dist/esm/exports/addToPrototype/any.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/any.js"
       },
       "require": {
-        "types": "./dist/commonjs/compact/index.d.ts",
-        "default": "./dist/commonjs/compact/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/any.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/any.js"
       }
     },
-    "./compactMap": {
+    "./addToPrototype/compact": {
       "import": {
-        "types": "./dist/esm/compactMap/index.d.ts",
-        "default": "./dist/esm/compactMap/index.js"
+        "types": "./dist/esm/exports/addToPrototype/compact.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/compact.js"
       },
       "require": {
-        "types": "./dist/commonjs/compactMap/index.d.ts",
-        "default": "./dist/commonjs/compactMap/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/compact.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/compact.js"
       }
     },
-    "./compactMapAsync": {
+    "./addToPrototype/compactMap": {
       "import": {
-        "types": "./dist/esm/compactMapAsync/index.d.ts",
-        "default": "./dist/esm/compactMapAsync/index.js"
+        "types": "./dist/esm/exports/addToPrototype/compactMap.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/compactMap.js"
       },
       "require": {
-        "types": "./dist/commonjs/compactMapAsync/index.d.ts",
-        "default": "./dist/commonjs/compactMapAsync/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/compactMap.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/compactMap.js"
       }
     },
-    "./cume": {
+    "./addToPrototype/cume": {
       "import": {
-        "types": "./dist/esm/cume/index.d.ts",
-        "default": "./dist/esm/cume/index.js"
+        "types": "./dist/esm/exports/addToPrototype/cume.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/cume.js"
       },
       "require": {
-        "types": "./dist/commonjs/cume/index.d.ts",
-        "default": "./dist/commonjs/cume/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/cume.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/cume.js"
       }
     },
-    "./distinct": {
+    "./addToPrototype/distinct": {
       "import": {
-        "types": "./dist/esm/distinct/index.d.ts",
-        "default": "./dist/esm/distinct/index.js"
+        "types": "./dist/esm/exports/addToPrototype/distinct.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/distinct.js"
       },
       "require": {
-        "types": "./dist/commonjs/distinct/index.d.ts",
-        "default": "./dist/commonjs/distinct/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/distinct.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/distinct.js"
       }
     },
-    "./except": {
+    "./addToPrototype/except": {
       "import": {
-        "types": "./dist/esm/except/index.d.ts",
-        "default": "./dist/esm/except/index.js"
+        "types": "./dist/esm/exports/addToPrototype/except.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/except.js"
       },
       "require": {
-        "types": "./dist/commonjs/except/index.d.ts",
-        "default": "./dist/commonjs/except/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/except.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/except.js"
       }
     },
-    "./first": {
+    "./addToPrototype/first": {
       "import": {
-        "types": "./dist/esm/first/index.d.ts",
-        "default": "./dist/esm/first/index.js"
+        "types": "./dist/esm/exports/addToPrototype/first.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/first.js"
       },
       "require": {
-        "types": "./dist/commonjs/first/index.d.ts",
-        "default": "./dist/commonjs/first/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/first.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/first.js"
       }
     },
-    "./forEachAsync": {
+    "./addToPrototype/groupBy": {
       "import": {
-        "types": "./dist/esm/forEachAsync/index.d.ts",
-        "default": "./dist/esm/forEachAsync/index.js"
+        "types": "./dist/esm/exports/addToPrototype/groupBy.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/groupBy.js"
       },
       "require": {
-        "types": "./dist/commonjs/forEachAsync/index.d.ts",
-        "default": "./dist/commonjs/forEachAsync/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/groupBy.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/groupBy.js"
       }
     },
-    "./groupBy": {
+    "./addToPrototype/innerJoin": {
       "import": {
-        "types": "./dist/esm/groupBy/index.d.ts",
-        "default": "./dist/esm/groupBy/index.js"
+        "types": "./dist/esm/exports/addToPrototype/innerJoin.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/innerJoin.js"
       },
       "require": {
-        "types": "./dist/commonjs/groupBy/index.d.ts",
-        "default": "./dist/commonjs/groupBy/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/innerJoin.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/innerJoin.js"
       }
     },
-    "./innerJoin": {
+    "./addToPrototype/interleave": {
       "import": {
-        "types": "./dist/esm/innerJoin/index.d.ts",
-        "default": "./dist/esm/innerJoin/index.js"
+        "types": "./dist/esm/exports/addToPrototype/interleave.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/interleave.js"
       },
       "require": {
-        "types": "./dist/commonjs/innerJoin/index.d.ts",
-        "default": "./dist/commonjs/innerJoin/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/interleave.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/interleave.js"
       }
     },
-    "./interleave": {
+    "./addToPrototype/last": {
       "import": {
-        "types": "./dist/esm/interleave/index.d.ts",
-        "default": "./dist/esm/interleave/index.js"
+        "types": "./dist/esm/exports/addToPrototype/last.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/last.js"
       },
       "require": {
-        "types": "./dist/commonjs/interleave/index.d.ts",
-        "default": "./dist/commonjs/interleave/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/last.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/last.js"
       }
     },
-    "./last": {
+    "./addToPrototype/leftJoin": {
       "import": {
-        "types": "./dist/esm/last/index.d.ts",
-        "default": "./dist/esm/last/index.js"
+        "types": "./dist/esm/exports/addToPrototype/leftJoin.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/leftJoin.js"
       },
       "require": {
-        "types": "./dist/commonjs/last/index.d.ts",
-        "default": "./dist/commonjs/last/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/leftJoin.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/leftJoin.js"
       }
     },
-    "./leftJoin": {
+    "./addToPrototype/max": {
       "import": {
-        "types": "./dist/esm/leftJoin/index.d.ts",
-        "default": "./dist/esm/leftJoin/index.js"
+        "types": "./dist/esm/exports/addToPrototype/max.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/max.js"
       },
       "require": {
-        "types": "./dist/commonjs/leftJoin/index.d.ts",
-        "default": "./dist/commonjs/leftJoin/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/max.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/max.js"
       }
     },
-    "./mapAsync": {
+    "./addToPrototype/min": {
       "import": {
-        "types": "./dist/esm/mapAsync/index.d.ts",
-        "default": "./dist/esm/mapAsync/index.js"
+        "types": "./dist/esm/exports/addToPrototype/min.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/min.js"
       },
       "require": {
-        "types": "./dist/commonjs/mapAsync/index.d.ts",
-        "default": "./dist/commonjs/mapAsync/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/min.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/min.js"
       }
     },
-    "./max": {
+    "./addToPrototype/none": {
       "import": {
-        "types": "./dist/esm/max/index.d.ts",
-        "default": "./dist/esm/max/index.js"
+        "types": "./dist/esm/exports/addToPrototype/none.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/none.js"
       },
       "require": {
-        "types": "./dist/commonjs/max/index.d.ts",
-        "default": "./dist/commonjs/max/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/none.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/none.js"
       }
     },
-    "./min": {
+    "./addToPrototype/outerJoin": {
       "import": {
-        "types": "./dist/esm/min/index.d.ts",
-        "default": "./dist/esm/min/index.js"
+        "types": "./dist/esm/exports/addToPrototype/outerJoin.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/outerJoin.js"
       },
       "require": {
-        "types": "./dist/commonjs/min/index.d.ts",
-        "default": "./dist/commonjs/min/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/outerJoin.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/outerJoin.js"
       }
     },
-    "./none": {
+    "./addToPrototype/sortBy": {
       "import": {
-        "types": "./dist/esm/none/index.d.ts",
-        "default": "./dist/esm/none/index.js"
+        "types": "./dist/esm/exports/addToPrototype/sortBy.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/sortBy.js"
       },
       "require": {
-        "types": "./dist/commonjs/none/index.d.ts",
-        "default": "./dist/commonjs/none/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/sortBy.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/sortBy.js"
       }
     },
-    "./outerJoin": {
+    "./addToPrototype/sum": {
       "import": {
-        "types": "./dist/esm/outerJoin/index.d.ts",
-        "default": "./dist/esm/outerJoin/index.js"
+        "types": "./dist/esm/exports/addToPrototype/sum.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/sum.js"
       },
       "require": {
-        "types": "./dist/commonjs/outerJoin/index.d.ts",
-        "default": "./dist/commonjs/outerJoin/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/sum.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/sum.js"
       }
     },
-    "./sortBy": {
+    "./addToPrototype/toRecord": {
       "import": {
-        "types": "./dist/esm/sortBy/index.d.ts",
-        "default": "./dist/esm/sortBy/index.js"
+        "types": "./dist/esm/exports/addToPrototype/toRecord.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/toRecord.js"
       },
       "require": {
-        "types": "./dist/commonjs/sortBy/index.d.ts",
-        "default": "./dist/commonjs/sortBy/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/toRecord.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/toRecord.js"
       }
     },
-    "./sum": {
+    "./addToPrototype/union": {
       "import": {
-        "types": "./dist/esm/sum/index.d.ts",
-        "default": "./dist/esm/sum/index.js"
+        "types": "./dist/esm/exports/addToPrototype/union.d.ts",
+        "default": "./dist/esm/exports/addToPrototype/union.js"
       },
       "require": {
-        "types": "./dist/commonjs/sum/index.d.ts",
-        "default": "./dist/commonjs/sum/index.js"
+        "types": "./dist/commonjs/exports/addToPrototype/union.d.ts",
+        "default": "./dist/commonjs/exports/addToPrototype/union.js"
       }
     },
-    "./toRecord": {
+    "./pipe": {
       "import": {
-        "types": "./dist/esm/toRecord/index.d.ts",
-        "default": "./dist/esm/toRecord/index.js"
+        "types": "./dist/esm/exports/pipe.d.ts",
+        "default": "./dist/esm/exports/pipe.js"
       },
       "require": {
-        "types": "./dist/commonjs/toRecord/index.d.ts",
-        "default": "./dist/commonjs/toRecord/index.js"
-      }
-    },
-    "./union": {
-      "import": {
-        "types": "./dist/esm/union/index.d.ts",
-        "default": "./dist/esm/union/index.js"
-      },
-      "require": {
-        "types": "./dist/commonjs/union/index.d.ts",
-        "default": "./dist/commonjs/union/index.js"
+        "types": "./dist/commonjs/exports/pipe.d.ts",
+        "default": "./dist/commonjs/exports/pipe.js"
       }
     }
   },
-  "main": "./dist/commonjs/index.js",
-  "types": "./dist/commonjs/index.d.ts",
-  "module": "./dist/esm/index.js"
+  "main": "./dist/commonjs/exports/index.js",
+  "types": "./dist/commonjs/exports/index.d.ts",
+  "module": "./dist/esm/exports/index.js"
 }
