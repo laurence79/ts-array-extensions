@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './any';
+import './any.js';

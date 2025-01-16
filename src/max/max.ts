@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 export {};
 
 declare global {
@@ -50,7 +49,6 @@ declare global {
 }
 
 if (!Array.prototype.max) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.max = function max<T, V>(
     this: ReadonlyArray<T>,
     callback?: (element: T, index: number, array: ReadonlyArray<T>) => V

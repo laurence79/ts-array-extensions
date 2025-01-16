@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './cume';
+import './cume.js';

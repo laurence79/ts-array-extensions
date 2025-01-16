@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './compactMapAsync';
+import './compactMapAsync.js';

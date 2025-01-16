@@ -18,7 +18,7 @@ declare global {
         element: T,
         index: number,
         array: ReadonlyArray<T>
-      ) => void | null | undefined | U
+      ) => null | undefined | U
     ): Array<U>;
   }
 
@@ -39,27 +39,26 @@ declare global {
         element: T,
         index: number,
         array: ReadonlyArray<T>
-      ) => void | null | undefined | U
+      ) => null | undefined | U
     ): Array<U>;
   }
 }
 
 if (!Array.prototype.compactMap) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.compactMap = function compactMap<T, U>(
     this: ReadonlyArray<T>,
     callbackFn?: (
       element: T,
       index: number,
       collection: ReadonlyArray<T>
-    ) => void | null | undefined | U
+    ) => null | undefined | U
   ): Array<U> {
-    return this.reduce((memo, element, index, collection) => {
+    return this.reduce<Array<U>>((memo, element, index, collection) => {
       const maybe = callbackFn?.(element, index, collection);
       if (maybe !== null && typeof maybe !== 'undefined') {
         memo.push(maybe);
       }
       return memo;
-    }, [] as Array<U>);
+    }, []);
   };
 }

@@ -3,10 +3,13 @@ node_modules
 
 # caches
 .eslintcache
+.wireit
 
 # misc
 .DS_Store
 npm-debug.log*
 
 # build output
-lib
+dist
+/.tshy/
+/.tshy-build/

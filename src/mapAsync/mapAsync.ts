@@ -43,7 +43,6 @@ declare global {
 }
 
 if (!Array.prototype.mapAsync) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.mapAsync = function mapAsync<T, U>(
     this: ReadonlyArray<T>,
     callback: (element: T, index: number, array: ReadonlyArray<T>) => Promise<U>

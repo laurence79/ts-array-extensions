@@ -1,4 +1,4 @@
-import '.';
+import './forEachAsync.js';
 
 describe('forEachAsync', () => {
   it('awaits all promises', async () => {

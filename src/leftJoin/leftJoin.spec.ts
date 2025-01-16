@@ -1,4 +1,4 @@
-import '.';
+import './leftJoin.js';
 
 describe('leftJoin', () => {
   const leftData = [

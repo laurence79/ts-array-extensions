@@ -1,4 +1,4 @@
-import '.';
+import './union.js';
 
 describe('union', () => {
   it('returns only values present in both arrays', () => {

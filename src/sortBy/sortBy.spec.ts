@@ -1,4 +1,4 @@
-import '.';
+import './sortBy.js';
 
 const input = [
   { name: 'Brian', age: 1 },

@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
+  "extends": "@tsconfig/node20",
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -7,11 +7,11 @@
     "allowUnusedLabels": false,
     "alwaysStrict": true,
     "baseUrl": ".",
-    "noEmit": true,
+    "declaration": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
-    "noImplicitThis": true,
     "noImplicitReturns": true,
+    "noImplicitThis": true,
     "noUnusedParameters": true,
     "pretty": true,
     "resolveJsonModule": true,
@@ -20,8 +20,6 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "types": ["node", "jest"],
-    "typeRoots": ["node_modules/@types"]
   },
-  "exclude": ["node_modules"],
-  "include": ["src", ".eslintrc.js", "jest.config.js", "rollup.config.js"]
+  "include": ["src"]
 }

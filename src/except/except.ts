@@ -1,4 +1,4 @@
-import { Comparer, defaultComparer } from '../types';
+import { Comparer, defaultComparer } from '../types/Comparer.js';
 
 export {};
 
@@ -35,7 +35,6 @@ declare global {
 }
 
 if (!Array.prototype.except) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.except = function except<T>(
     this: ReadonlyArray<T>,
     other: ReadonlyArray<T>,
@@ -43,7 +42,7 @@ if (!Array.prototype.except) {
   ): Array<T> {
     const comparerFn = arg2 ?? defaultComparer<T>();
 
-    return this.reduce((memo, element) => {
+    return this.reduce<Array<T>>((memo, element) => {
       if (
         !other.some(v => comparerFn(v, element)) &&
         !memo.some(v => comparerFn(v, element))
@@ -51,6 +50,6 @@ if (!Array.prototype.except) {
         memo.push(element);
       }
       return memo;
-    }, [] as Array<T>);
+    }, []);
   };
 }

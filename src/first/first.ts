@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 export {};
 
 declare global {
@@ -56,7 +55,6 @@ declare global {
 }
 
 if (!Array.prototype.first) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.first = function first<T>(
     this: ReadonlyArray<T>,
     callbackFn?: (element: T, index: number, array: ReadonlyArray<T>) => boolean

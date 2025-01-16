@@ -1,4 +1,4 @@
-import '.';
+import './compact.js';
 
 describe('compact', () => {
   it('does not return nulls', () => {

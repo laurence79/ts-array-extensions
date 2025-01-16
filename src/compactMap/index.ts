@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './compactMap';
+import './compactMap.js';

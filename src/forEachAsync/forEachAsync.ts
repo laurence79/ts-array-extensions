@@ -45,7 +45,6 @@ declare global {
 }
 
 if (!Array.prototype.forEachAsync) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.forEachAsync = async function forEachAsync<T>(
     this: ReadonlyArray<T>,
     callbackFn: (

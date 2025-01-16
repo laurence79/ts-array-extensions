@@ -1,5 +1,5 @@
-import '../mapAsync';
-import '../compact';
+import '../mapAsync/mapAsync.js';
+import '../compact/compact.js';
 
 export {};
 
@@ -48,7 +48,6 @@ declare global {
 }
 
 if (!Array.prototype.compactMapAsync) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.compactMapAsync = async function compactMapAsync<T, U>(
     this: ReadonlyArray<T>,
     callbackFn: (

@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 export {};
 
 declare global {
@@ -56,7 +55,6 @@ declare global {
 }
 
 if (!Array.prototype.last) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.last = function last<T>(
     this: ReadonlyArray<T>,
     callbackFn?: (element: T, index: number, array: ReadonlyArray<T>) => boolean
@@ -68,11 +66,11 @@ if (!Array.prototype.last) {
       return undefined;
     }
 
-    return this.reduce((memo, element, index) => {
+    return this.reduce<undefined | T>((memo, element, index) => {
       if (callbackFn(element, index, this)) {
         return element;
       }
       return memo;
-    }, undefined as undefined | T);
+    }, undefined);
   };
 }

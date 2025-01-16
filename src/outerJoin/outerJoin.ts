@@ -53,7 +53,6 @@ declare global {
 }
 
 if (!Array.prototype.outerJoin) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.outerJoin = function outerJoin<T, U>(
     this: T[],
     other: ReadonlyArray<U>,

@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './compact';
+import './compact.js';

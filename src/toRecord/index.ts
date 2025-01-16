@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './toRecord';
+import './toRecord.js';

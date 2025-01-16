@@ -1,4 +1,4 @@
-import { Comparer, defaultComparer } from '../types';
+import { Comparer, defaultComparer } from '../types/Comparer.js';
 
 export {};
 
@@ -33,18 +33,17 @@ declare global {
 }
 
 if (!Array.prototype.distinct) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.distinct = function distinct<T>(
     this: ReadonlyArray<T>,
     arg1?: Comparer<T>
   ): Array<T> {
     const comparerFn = arg1 ?? defaultComparer<T>();
 
-    return this.reduce((memo, value) => {
+    return this.reduce<Array<T>>((memo, value) => {
       if (!memo.some(v => comparerFn(v, value))) {
         memo.push(value);
       }
       return memo;
-    }, [] as Array<T>);
+    }, []);
   };
 }

@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './except';
+import './except.js';

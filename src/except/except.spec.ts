@@ -1,4 +1,4 @@
-import '.';
+import './except.js';
 
 describe('except', () => {
   it("returns only values in the first array that aren't in the second", () => {

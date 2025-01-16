@@ -1,4 +1,4 @@
-import '.';
+import './interleave.js';
 
 describe('interleave', () => {
   it('inserts elements', () => {

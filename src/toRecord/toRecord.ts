@@ -1,4 +1,4 @@
-import { Key } from '../types';
+import { Key } from '../types/Key.js';
 
 declare global {
   interface ReadonlyArray<T> {
@@ -81,7 +81,6 @@ declare global {
 }
 
 if (!Array.prototype.toRecord) {
-  // eslint-disable-next-line no-extend-native
   Array.prototype.toRecord = function toRecord<T, K extends Key, V>(
     this: ReadonlyArray<T>,
     keyExtractFn: (element: T, index: number, array: ReadonlyArray<T>) => K,

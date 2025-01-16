@@ -1,3 +1,1 @@
-// auto-barrel-ignore
-
-import './last';
+import './last.js';
