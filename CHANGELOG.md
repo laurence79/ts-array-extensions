@@ -1,3 +1,10 @@
+## [2.2.4-next.4](https://github.com/laurence79/ts-array-extensions/compare/2.2.4-next.3...2.2.4-next.4) (2025-01-16)
+
+
+### Bug Fixes
+
+* Missing file extensions on compact and compactMap ([947af23](https://github.com/laurence79/ts-array-extensions/commit/947af237e69aa9054cb876e6e4b40e7eef919f42))
+
 ## [2.2.4-next.3](https://github.com/laurence79/ts-array-extensions/compare/2.2.4-next.2...2.2.4-next.3) (2025-01-16)
 
 
