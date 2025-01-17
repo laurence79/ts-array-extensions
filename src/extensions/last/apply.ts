@@ -28,7 +28,7 @@ declare global {
      * @returns The last element where the callback returned true, or if none
      *  do then `undefined`
      */
-    last(callback: Callback<T, boolean>): T | undefined;
+    last(callback?: Callback<T, boolean>): T | undefined;
   }
 }
 

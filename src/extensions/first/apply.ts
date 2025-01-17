@@ -29,7 +29,7 @@ declare global {
      * @returns The first element where the callback returned true, or
      *  `undefined`
      */
-    first(callback: Callback<T, boolean>): T | undefined;
+    first(callback?: Callback<T, boolean>): T | undefined;
   }
 }
 
