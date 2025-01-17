@@ -39,7 +39,7 @@ test('extracts last value', () => {
   });
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].toRecord).toBeDefined();

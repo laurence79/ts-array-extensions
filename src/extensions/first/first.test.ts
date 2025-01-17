@@ -16,7 +16,7 @@ test('uses projection', () => {
   expect(result).toEqual('bacon');
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].first).toBeDefined();

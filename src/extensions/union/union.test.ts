@@ -40,7 +40,7 @@ test('uses custom comparer', () => {
   expect(result).toContainEqual({ day: 2, month: 1, year: 1979 });
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].union).toBeDefined();

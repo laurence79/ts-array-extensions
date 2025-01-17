@@ -20,7 +20,7 @@ test('maps numbers first', () => {
   expect(result).toEqual([10, 110, 1110]);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].cume).toBeDefined();

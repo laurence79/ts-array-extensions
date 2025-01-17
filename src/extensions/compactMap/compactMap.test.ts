@@ -5,7 +5,7 @@ test('uses projection', () => {
   expect(result).toEqual([2, 4]);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].compactMap).toBeDefined();

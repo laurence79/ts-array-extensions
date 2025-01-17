@@ -15,7 +15,7 @@ test('skips non-number values', () => {
   expect(result).toEqual(1);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].sum).toBeDefined();

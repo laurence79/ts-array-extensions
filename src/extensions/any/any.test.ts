@@ -8,7 +8,7 @@ test('returns false for arrays with no elements', () => {
   expect(any([])).toEqual(false);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].any).toBeDefined();

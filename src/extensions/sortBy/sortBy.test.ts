@@ -31,7 +31,7 @@ test('does not mutate original array', () => {
   expect(input.map(v => v.name)).toEqual(['Brian', 'Albert', 'Charlie']);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].sortBy).toBeDefined();

@@ -54,7 +54,7 @@ test('uses the ordering from the left', () => {
   ]);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].leftJoin).toBeDefined();

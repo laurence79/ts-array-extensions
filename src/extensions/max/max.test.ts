@@ -12,7 +12,7 @@ test('returns the highest projection', () => {
   expect(result).toEqual(200);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].max).toBeDefined();

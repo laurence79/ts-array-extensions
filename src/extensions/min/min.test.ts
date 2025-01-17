@@ -12,7 +12,7 @@ test('returns the lowest projection', () => {
   expect(result).toEqual(2);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].min).toBeDefined();

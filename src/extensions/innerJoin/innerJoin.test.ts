@@ -38,7 +38,7 @@ test('returns matched values', () => {
   });
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].innerJoin).toBeDefined();

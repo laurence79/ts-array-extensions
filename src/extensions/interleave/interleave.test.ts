@@ -21,7 +21,7 @@ test('calls the callback with the expected values', () => {
   expect(calls[1].n).toEqual('three');
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].interleave).toBeDefined();

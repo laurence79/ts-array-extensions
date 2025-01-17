@@ -78,7 +78,7 @@ test('uses custom comparer', () => {
   });
 });
 
-import './addPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].groupBy).toBeDefined();

@@ -15,7 +15,7 @@ test('returns falsy values', () => {
   expect(result).toEqual([true, false]);
 });
 
-import './addToPrototype.js';
+import './apply.js';
 
 test('applied to array prototype', () => {
   expect([].compact).toBeDefined();
