@@ -1,1 +1,0 @@
-import './compact.js';
