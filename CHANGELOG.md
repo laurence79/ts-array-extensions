@@ -1,3 +1,16 @@
+# [3.0.0-beta.1](https://github.com/laurence79/ts-array-extensions/compare/2.2.4...3.0.0-beta.1) (2025-01-17)
+
+
+### Features
+
+* Add pipes ([#38](https://github.com/laurence79/ts-array-extensions/issues/38)) ([c1bdeff](https://github.com/laurence79/ts-array-extensions/commit/c1bdeff257933eb875b5ed5fb68207d46fa95ab3))
+* Rename addToPrototype to apply ([f4b1c18](https://github.com/laurence79/ts-array-extensions/commit/f4b1c18a8b5b99779eb46f980a1f2eb037798f08))
+
+
+### BREAKING CHANGES
+
+* Async functions removed, new import path to apply to Array prototype
+
 # [3.0.0-alpha.2](https://github.com/laurence79/ts-array-extensions/compare/3.0.0-alpha.1...3.0.0-alpha.2) (2025-01-17)
 
 
