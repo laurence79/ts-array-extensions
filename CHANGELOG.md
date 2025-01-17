@@ -1,3 +1,10 @@
+# [3.0.0-beta.2](https://github.com/laurence79/ts-array-extensions/compare/3.0.0-beta.1...3.0.0-beta.2) (2025-01-17)
+
+
+### Bug Fixes
+
+* callback should be optional on first() and last() ([c1cc968](https://github.com/laurence79/ts-array-extensions/commit/c1cc9684bb00f9e95d964492e8a2b55a46cf1779))
+
 # [3.0.0-beta.1](https://github.com/laurence79/ts-array-extensions/compare/2.2.4...3.0.0-beta.1) (2025-01-17)
 
 
