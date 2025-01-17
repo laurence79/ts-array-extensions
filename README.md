@@ -6,69 +6,66 @@ in ones in js, e.g. `map`, `filter`.
 Inspired by swift and LINQ.
 
 ## Install
-Use your package manager of choice
+Use your package manager of choice, e.g.
 ```sh
 npm i ts-array-extensions
-```
-```sh
-yarn add ts-array-extensions
-```
-```sh
-pnpm i ts-array-extensions
 ```
 
 ## Using
 
-You can either
-1. Extend `Array.prototype` with utility imports.
-2. Import the functions directly.
-3. Use pipes.
+You have three options for consuming the functions from this library. Either extend the `Array.prototype` using a utility import (simplest), importing the functions directly (cleanest), or using the `pipe()` function (compromise, one eye on the future).
 
-### 1. Extending the `Array` prototype
+### 1. Extend the `Array.prototype`
+You can `import` all the functions in am `index.ts` or `main.ts` file.
 
-You can `import` all the functions
+This is the simplest and most readable approach.
 
 ```ts
+// entry-point.ts
 import 'ts-array-extensions/applyToPrototype';
 
-[1, 2].cume(); // [1, 3]
+// some-other-file.ts
+[1, 2, 3]
+  .compactMap(v => {
+    if (v % 2 !== 0) return v;
+  })
+  .cume(); // [1, 4]
 ```
 
-or individual ones as you need them, then the rest can be shaken out of the
-tree by your bundler
+or individual ones as you need them, the rest can be shaken out of the tree by your bundler.
 
 ```ts
+// entry-point.ts
 import 'ts-array-extensions/applyToPrototype/compactMap';
-
-[1, 2, 3].compactMap(v => {
-  if (v % 2 !== 0) return v;
-});
-// [1, 3]
+import 'ts-array-extensions/applyToPrototype/cume';
 ```
+
+The imports can be made more than once with no adverse effects.
 
 ### 2. Importing the functions directly
 
-You can `import` the functions and use them directly
+You can `import` the functions and use them directly.
+
+This is the cleanest approach with no prototype pollution, but readability is sacrificed.
 
 ```ts
 import { cume, compactMap } from 'ts-array-extensions';
 
-cume([1, 2]); // [1, 3]
-
-compactMap(
-  [1, 2, 3],
-  v => {
-    if (v % 2 !== 0) return v;
-  }
-);
-// [1, 3]
+cume(
+  compactMap(
+    [1, 2, 3],
+    v => {
+      if (v % 2 !== 0) return v;
+    }
+  )
+); // [1, 4]
 ```
 
 ### 3. Use pipes
 
-Avoid prototype pollution, but almost as easy to follow.
+Almost as easy to read as the prototype extension mode, but without the prototype pollution.
 
-Will be even better when the javascript [pipeline operator proposal](https://github.com/tc39/proposal-pipeline-operator) lands in typescript
+This is ready for when the [pipeline operator proposal](https://github.com/tc39/proposal-pipeline-operator) lands in typescript
 
 ```ts
 import { pipe, cume, compactMap } from 'ts-array-extensions/pipes';
@@ -79,8 +76,7 @@ pipe(
     if (v % 2 !== 0) return v;
   }),
   cume()
-)
-// [1, 4]
+) // [1, 4]
 ```
 
 ## Methods
@@ -137,18 +133,6 @@ Maps elements and returns results that are not `null` or `undefined`.
   if (v % 2 !== 0) return v;
 });
 // [1, 3]
-```
-
-### compactMapAsync
-
-Same as [compactMap](#compactMap) but works with promises. Will await `async` callbacks.
-
-```ts
-await [1, 2, 3].compactMapAsync(async v => {
-  await /* something */
-  return v;
-});
-// [1, 2, 3]
 ```
 
 ### cume
