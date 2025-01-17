@@ -4,12 +4,18 @@ on:
   push:
     branches:
       - main
-      - next
+      - alpha
+      - beta
   
   pull_request:
     branches:
       - main
-      - next
+      - alpha
+      - beta
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lint:
