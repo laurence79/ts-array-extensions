@@ -1,3 +1,10 @@
+# [3.0.0-alpha.2](https://github.com/laurence79/ts-array-extensions/compare/3.0.0-alpha.1...3.0.0-alpha.2) (2025-01-17)
+
+
+### Features
+
+* Rename addToPrototype to apply ([f4b1c18](https://github.com/laurence79/ts-array-extensions/commit/f4b1c18a8b5b99779eb46f980a1f2eb037798f08))
+
 ## [3.0.0-alpha.1](https://github.com/laurence79/ts-array-extensions/compare/2.2.3...3.0.0-alpha.1) (2025-01-16)
 
 

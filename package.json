@@ -1,6 +1,6 @@
 {
   "name": "ts-array-extensions",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "description": "A library that adds common array higher order function support beyond the built in functions in js, e.g. &#x60;map&#x60;, &#x60;filter&#x60;, by extending the &#x60;Array&#x60; prototype.",
   "keywords": [],
   "homepage": "https://github.com/laurence79/ts-array-extensions#readme",
